@@ -3,32 +3,35 @@ import React from "react";
 class FilterBy extends React.Component {
   render() {
     return (
-      <ul className="legend">
-        <li className="legend--item legend--purchased">
-          <input
-            className="legend--checkbox"
-            id="filter-purchased"
-            name="filter"
-            value="purchased"
-            type="checkbox"
-          />
-          <label htmlFor="filter-purchased" className="legend--label">
-            Purchased
-          </label>
-        </li>
-        <li className="legend--item legend--prioritize">
-          <input
-            className="legend--checkbox"
-            id="filter-prioritize"
-            name="filter"
-            value="prioritize"
-            type="checkbox"
-          />
-          <label htmlFor="filter-prioritize" className="legend--label">
-            Prioritize
-          </label>
-        </li>
-      </ul>
+      <div className="filter">
+        <p class="sr-only">Filter by:</p>
+        <ul className="filter--list">
+          <li className="filter--item filter--purchased">
+            <input
+              className="filter--checkbox"
+              id="filter-purchased"
+              name="filter"
+              value="purchased"
+              type="checkbox"
+            />
+            <label htmlFor="filter-purchased" className="filter--label">
+              Purchased
+            </label>
+          </li>
+          <li className="filter--item filter--prioritize">
+            <input
+              className="filter--checkbox"
+              id="filter-prioritize"
+              name="filter"
+              value="prioritize"
+              type="checkbox"
+            />
+            <label htmlFor="filter-prioritize" className="filter--label">
+              Prioritize
+            </label>
+          </li>
+        </ul>
+      </div>
     );
   }
 }

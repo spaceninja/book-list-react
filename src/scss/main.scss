@@ -1,16 +1,31 @@
 @import "normalize";
 
-@mixin wrap_long_words() {
-    // stylelint-disable order/properties-alphabetical-order
-    word-break: break-word; // 1
-    word-wrap: break-word; // 2
-    overflow-wrap: break-word; // 3
-    // stylelint-enable
-}
-
+//
+// Variables
+//
 $color_purchased: rgba(0, 128, 0, 0.33);
 $color_prioritized: rgba(255, 0, 0, 0.33);
 
+//
+// Wrap Long Words
+//
+// The overflow-wrap property is used to specify whether or not the browser
+// may break lines within words in order to prevent overflow when an
+// otherwise unbreakable string is too long to fit in its containing box.
+//
+// 1. old name, required for IE support (see caniuse.com)
+// 2. new name, works everywhere else
+//
+@mixin wrap_long_words() {
+    // stylelint-disable order/properties-alphabetical-order
+    word-wrap: break-word;     // 1
+    overflow-wrap: break-word; // 2
+    // stylelint-enable
+}
+
+//
+// Base Styles
+//
 * {
     box-sizing: border-box;
 }
@@ -52,7 +67,7 @@ header {
         margin-top: 0.5em;
     }
 
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 640px) {
         flex-direction: row;
 
         > * + * {
@@ -76,21 +91,46 @@ h1 {
     }
 }
 
-.legend {
+p {
+    margin-top: 0;
+}
+
+blockquote {
+    margin: 0;
+}
+
+//
+// Utilities
+//
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+//
+// Filter Checkboxes
+//
+.filter--list {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.legend--item {
+.filter--item {
     align-items: center;
     display: flex;
     line-height: 1;
     margin: 0;
     padding: 0;
 
-    + .legend--item {
+    + .filter--item {
         margin-left: 1em;
     }
 
@@ -105,47 +145,34 @@ h1 {
     }
 }
 
-.legend--checkbox {
+.filter--checkbox {
     margin-right: 0.33em;
 }
 
-.legend--purchased {
+.filter--purchased {
 
     &::before {
         background: $color_purchased;
     }
 }
 
-.legend--prioritize {
+.filter--prioritize {
 
     &::before {
         background: $color_prioritized;
     }
 }
 
-.sort-by {
-    font-size: 1.2em;
+//
+// Sort Dropdown
+//
+.sort--label {
+    margin-right: 0.33em;
 }
 
-p {
-    margin-top: 0;
-}
-
-blockquote {
-    margin: 0;
-}
-
-.sr-only {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-}
-
+//
+// Book List
+//
 .book-list {
     display: grid;
     grid-gap: 1em;
@@ -159,6 +186,9 @@ blockquote {
     }
 }
 
+//
+// Book
+//
 .book {
     background: white;
     border-radius: 3px;

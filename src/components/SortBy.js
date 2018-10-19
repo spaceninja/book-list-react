@@ -3,9 +3,11 @@ import React from "react";
 class SortBy extends React.Component {
   render() {
     return (
-      <div className="sort-by">
-        <label htmlFor="booklist-sort">Sort by</label>
-        <select id="booklist-sort">
+      <div className="sort">
+        <label className="sort--label" htmlFor="booklist-sort">
+          Sort by:
+        </label>
+        <select className="sort--control" id="booklist-sort">
           <option
             value="title"
             data-sort-order="ascending"
