@@ -1,24 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import FilterBy from "./FilterBy";
+import SortBy from "./SortBy";
+import Book from "./Book";
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Book List</h1>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <main>
+        <header>
+          <h1>Reading List</h1>
+          <FilterBy />
+          <SortBy />
         </header>
-      </div>
+        <ul className="book-list" id="booklist-content">
+          <Book />
+        </ul>
+      </main>
     );
   }
 }
