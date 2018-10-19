@@ -29,6 +29,6 @@
   ],
   "devDependencies": {
     "stylelint": "^9.6.0",
-    "stylelint-config-saymedia": "github:saymedia/stylelint-config-saymedia"
+    "stylelint-config-spaceninja": "github:spaceninja/stylelint-config-spaceninja"
   }
 }
