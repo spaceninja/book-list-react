@@ -1,3 +1,9 @@
+# Book List
+
+This project is a React version of my [book list](https://github.com/spaceninja/book-list) side project. I started that project to challenge my vanilla javascript skills, and this project is recreating that functionality using React.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
