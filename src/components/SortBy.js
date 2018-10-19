@@ -31,7 +31,7 @@ class SortBy extends React.Component {
             Author
           </option>
           <option
-            selected
+            defaultValue
             value="rating"
             data-sort-order="descending"
             data-sort-secondary="length"

@@ -1,35 +1,58 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { reverseName } from "../helpers";
 
 class Book extends React.Component {
+  static propTypes = {
+    details: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      isbn: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      length: PropTypes.number.isRequired,
+      series: PropTypes.string,
+      textSnippet: PropTypes.string,
+      source: PropTypes.string,
+      note: PropTypes.string,
+      purchased: PropTypes.bool,
+      prioritize: PropTypes.bool
+    }).isRequired
+  };
+
   render() {
+    const { ...book } = this.props.details;
+    let classes = "book";
+    if (book.purchased) classes += " book--purchased";
+    if (book.prioritize) classes += " book--prioritized";
+
     return (
-      <li className="book">
+      <li className={classes}>
         <h2 className="book--headline">
-          <span className="book--title">Before Mars</span>
-          <span className="book--series">Planetfall #3</span>
+          <span className="book--title">{book.title}</span>
+          {book.series && " "}
+          {book.series && <span className="book--series">({book.series})</span>}
         </h2>
-        <p className="book--author" data-prefix="by ">
-          Emma Newman
+        <p className="book--author">by {reverseName(book.author)}</p>
+        <p className="book--rating num">
+          <span className="sr-only">Rating:</span> {book.rating.toFixed(1)}
         </p>
-        <p className="book--rating num">4.1</p>
-        <p className="book--length num" data-suffix="p">
-          320
+        <p className="book--length num">
+          <span className="sr-only">Length:</span> {book.length}p
         </p>
-        <blockquote>
-          <p className="book--snippet">
-            After months of travel, Anna Kubrin finally arrives on Mars for her
-            new job as a geologist and de facto artist-in-residence.
+        {book.textSnippet && (
+          <blockquote>
+            <p className="book--snippet">{book.textSnippet}</p>
+          </blockquote>
+        )}
+        {(book.source || book.note) && (
+          <p className="book--recommendation">
+            {book.source && (
+              <span className="book--source">Recommended by {book.source}</span>
+            )}
+            {book.source && book.note && ": "}
+            {book.note && <q className="book--note">{book.note}</q>}
           </p>
-        </blockquote>
-        <p className="book--recommendation">
-          <span className="book--source" data-prefix="Recommended by ">
-            io9
-          </span>
-          <q className="book--note">
-            A woman undergoes a long, grueling journey to her new job on Mars,
-            only to have an eerie sense of déjà vu once she arrives.
-          </q>
-        </p>
+        )}
       </li>
     );
   }

@@ -135,6 +135,17 @@ blockquote {
     margin: 0;
 }
 
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
 .book-list {
     display: grid;
     grid-gap: 1em;
@@ -223,28 +234,12 @@ blockquote {
 .book--series {
     font-weight: 300;
     opacity: 0.5;
-
-    &::before {
-        content: "(";
-    }
-
-    &::after {
-        content: ")";
-    }
-
-    &:empty {
-        display: none;
-    }
 }
 
 .book--author {
     line-height: 1.2;
     margin-right: 4rem;
     opacity: 0.7;
-
-    &::before {
-        content: attr(data-prefix);
-    }
 }
 
 .book--rating {
@@ -267,10 +262,6 @@ blockquote {
     text-align: center;
     top: 3.5rem;
     width: 4.5rem;
-
-    &::after {
-        content: attr(data-suffix);
-    }
 }
 
 .book--snippet {
@@ -282,32 +273,9 @@ blockquote {
     margin: 0 -0.5em;
     opacity: 0.7;
     padding: 0.4em 0.75em;
-
-    &:empty {
-        display: none;
-    }
-}
-
-.book--source {
-
-    &::before {
-        content: attr(data-prefix);
-    }
-
-    &::after {
-        content: attr(data-suffix);
-    }
-
-    &:empty {
-        display: none;
-    }
 }
 
 .book--note {
     @include wrap_long_words();
     font-style: italic;
-
-    &:empty {
-        display: none;
-    }
 }
