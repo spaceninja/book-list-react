@@ -3,6 +3,18 @@ import FilterBy from "./FilterBy";
 import SortBy from "./SortBy";
 import Book from "./Book";
 import sampleBooks from "../sample-books";
+import { firstBy } from "thenby";
+
+//
+// TODO:
+// * sort book list
+// * filter book list
+// * sync state with localstore
+// * read booklist from firebase (readonly)
+// * create book
+// * update book
+// * delete book
+//
 
 class App extends React.Component {
   state = {
