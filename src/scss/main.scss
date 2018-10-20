@@ -111,6 +111,19 @@ blockquote {
     width: 1px;
 }
 
+.alert {
+    margin: 1em 0;
+    padding: 0.25em 1em 0.5em;
+}
+
+.alert--warning {
+    background: #ffc;
+}
+
+.alert--error {
+    background: #fcc;
+}
+
 //
 // Filter Checkboxes
 //
