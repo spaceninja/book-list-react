@@ -1,10 +1,14 @@
 import React from "react";
 
 class FilterBy extends React.Component {
+  handleChange = e => {
+    this.props.setFilter(e.currentTarget.value, e.currentTarget.checked);
+  };
+
   render() {
     return (
       <div className="filter">
-        <p class="sr-only">Filter by:</p>
+        <p className="sr-only">Filter by:</p>
         <ul className="filter--list">
           <li className="filter--item filter--purchased">
             <input
@@ -13,6 +17,7 @@ class FilterBy extends React.Component {
               name="filter"
               value="purchased"
               type="checkbox"
+              onChange={this.handleChange}
             />
             <label htmlFor="filter-purchased" className="filter--label">
               Purchased
@@ -25,6 +30,7 @@ class FilterBy extends React.Component {
               name="filter"
               value="prioritize"
               type="checkbox"
+              onChange={this.handleChange}
             />
             <label htmlFor="filter-prioritize" className="filter--label">
               Prioritize
