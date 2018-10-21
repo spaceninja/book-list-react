@@ -5,22 +5,18 @@ import Book from "./Book";
 class BookList extends React.Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
-    filters: PropTypes.object.isRequired
+    filters: PropTypes.array.isRequired
   };
 
   applyFilters = books => {
-    const filters = this.props.filters;
-    for (let filter in filters) {
-      if (filters[filter]) {
-        books = books.filter(book => book[filter]);
-      }
-    }
+    this.props.filters.forEach(key => {
+      books = books.filter(book => book[key]);
+    });
     return books;
   };
 
   render() {
-    let books = this.props.books;
-    books = this.applyFilters(books);
+    const books = this.applyFilters(this.props.books);
     if (books.length > 0) {
       return (
         <ul className="book-list">

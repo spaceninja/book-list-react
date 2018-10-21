@@ -4,18 +4,21 @@ import SortBy from "./SortBy";
 import BookList from "./BookList";
 import initBooks from "../init-books";
 import sampleBooks from "../sample-books";
-// import { firstBy } from "thenby";
 
 class App extends React.Component {
   state = {
     books: [],
-    filters: {},
-    sort: {}
+    filters: []
   };
 
   setFilter = (name, value) => {
     const filters = this.state.filters;
-    filters[name] = value;
+    if (value === true) {
+      filters.push(name);
+    } else {
+      const deleteMe = filters.indexOf(name);
+      if (deleteMe >= 0) filters.splice(deleteMe, 1);
+    }
     this.setState({ filters });
   };
 
