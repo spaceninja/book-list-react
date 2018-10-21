@@ -2,6 +2,7 @@ import React from "react";
 import FilterBy from "./FilterBy";
 import SortBy from "./SortBy";
 import BookList from "./BookList";
+import BookForm from "./BookForm";
 import initBooks from "../init-books";
 import sampleBooks from "../sample-books";
 
@@ -9,7 +10,9 @@ class App extends React.Component {
   state = {
     books: [],
     filters: [],
-    sort: {}
+    sort: {},
+    editing: {},
+    showModal: false
   };
 
   sortOptions = {
@@ -30,6 +33,11 @@ class App extends React.Component {
     this.setState({ sort });
   };
 
+  toggleModal = () => {
+    const showModal = !this.state.showModal;
+    this.setState({ showModal });
+  };
+
   setFilter = (name, value) => {
     const filters = this.state.filters;
     if (value === true) {
@@ -39,6 +47,25 @@ class App extends React.Component {
       if (deleteMe >= 0) filters.splice(deleteMe, 1);
     }
     this.setState({ filters });
+  };
+
+  saveBook = () => {
+    const newBook = { ...this.state.editing };
+    const books = this.state.books;
+    books.push(newBook);
+    this.setState({ books });
+    this.setState({ editing: {} });
+    this.toggleModal();
+  };
+
+  editBook = (key, value) => {
+    const editing = { ...this.state.editing };
+    if (value) {
+      editing[key] = value;
+    } else {
+      delete editing[key];
+    }
+    this.setState({ editing });
   };
 
   loadSampleBooks = () => {
@@ -63,8 +90,20 @@ class App extends React.Component {
           filters={this.state.filters}
           sort={this.state.sort}
         />
+        <BookForm
+          toggleModal={this.toggleModal}
+          showModal={this.state.showModal}
+          editBook={this.editBook}
+          saveBook={this.saveBook}
+          editing={this.state.editing}
+        />
         <footer>
-          <button onClick={this.loadSampleBooks}>Load Sample Books</button>
+          <button className="btn btn-secondary" onClick={this.loadSampleBooks}>
+            Load Sample Books
+          </button>
+          <button className="btn btn-secondary" onClick={this.toggleModal}>
+            Add New Book
+          </button>
         </footer>
       </main>
     );
