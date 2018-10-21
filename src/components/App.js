@@ -8,7 +8,26 @@ import sampleBooks from "../sample-books";
 class App extends React.Component {
   state = {
     books: [],
-    filters: []
+    filters: [],
+    sort: {}
+  };
+
+  sortOptions = {
+    title: { order: "ascending", thenBy: "author", thenByOrder: "ascending" },
+    series: { order: "ascending", thenBy: "title", thenByOrder: "ascending" },
+    author: { order: "ascending", thenBy: "title", thenByOrder: "ascending" },
+    rating: { order: "descending", thenBy: "length", thenByOrder: "ascending" },
+    length: { order: "ascending", thenBy: "rating", thenByOrder: "descending" }
+  };
+
+  setSort = value => {
+    const sort = {
+      firstBy: value,
+      firstByOrder: this.sortOptions[value].order,
+      thenBy: this.sortOptions[value].thenBy,
+      thenByOrder: this.sortOptions[value].thenByOrder
+    };
+    this.setState({ sort });
   };
 
   setFilter = (name, value) => {
@@ -28,6 +47,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.setState({ books: initBooks });
+    this.setSort("rating");
   }
 
   render() {
@@ -36,9 +56,13 @@ class App extends React.Component {
         <header>
           <h1>Reading List</h1>
           <FilterBy setFilter={this.setFilter} />
-          <SortBy />
+          <SortBy setSort={this.setSort} sort={this.state.sort} />
         </header>
-        <BookList filters={this.state.filters} books={this.state.books} />
+        <BookList
+          books={this.state.books}
+          filters={this.state.filters}
+          sort={this.state.sort}
+        />
         <footer>
           <button onClick={this.loadSampleBooks}>Load Sample Books</button>
         </footer>
