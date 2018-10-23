@@ -3,6 +3,7 @@ import FilterBy from "./FilterBy";
 import SortBy from "./SortBy";
 import BookList from "./BookList";
 import BookForm from "./BookForm";
+import Footer from "./Footer";
 import initBooks from "../init-books";
 import sampleBooks from "../sample-books";
 
@@ -12,7 +13,8 @@ class App extends React.Component {
     filters: [],
     sort: {},
     editing: {},
-    showModal: false
+    showModal: false,
+    editMode: false
   };
 
   sortOptions = {
@@ -21,6 +23,16 @@ class App extends React.Component {
     author: { order: "ascending", thenBy: "title", thenByOrder: "ascending" },
     rating: { order: "descending", thenBy: "length", thenByOrder: "ascending" },
     length: { order: "ascending", thenBy: "rating", thenByOrder: "descending" }
+  };
+
+  toggleModal = () => {
+    const showModal = !this.state.showModal;
+    this.setState({ showModal });
+  };
+
+  toggleEditMode = () => {
+    const editMode = !this.state.editMode;
+    this.setState({ editMode });
   };
 
   setSort = value => {
@@ -33,14 +45,9 @@ class App extends React.Component {
     this.setState({ sort });
   };
 
-  toggleModal = () => {
-    const showModal = !this.state.showModal;
-    this.setState({ showModal });
-  };
-
   setFilter = (name, value) => {
     const filters = this.state.filters;
-    if (value === true) {
+    if (value) {
       filters.push(name);
     } else {
       const deleteMe = filters.indexOf(name);
@@ -49,13 +56,17 @@ class App extends React.Component {
     this.setState({ filters });
   };
 
-  saveBook = () => {
-    const newBook = { ...this.state.editing };
-    const books = this.state.books;
-    books.push(newBook);
-    this.setState({ books });
+  createNewBook = () => {
     this.setState({ editing: {} });
-    this.toggleModal();
+    this.setState({ showModal: true });
+  };
+
+  loadBook = isbn => {
+    const books = this.state.books;
+    const index = books.findIndex(b => b.isbn === isbn);
+    const editing = books[index];
+    this.setState({ editing });
+    this.setState({ showModal: true });
   };
 
   editBook = (key, value) => {
@@ -66,6 +77,27 @@ class App extends React.Component {
       delete editing[key];
     }
     this.setState({ editing });
+  };
+
+  saveBook = () => {
+    const books = this.state.books;
+    const newBook = { ...this.state.editing };
+    const index = books.findIndex(b => b.isbn === newBook.isbn);
+    if (index >= 0) {
+      books.splice(index, 1).push(newBook);
+    } else {
+      books.push(newBook);
+    }
+    this.setState({ books });
+    this.setState({ editing: {} });
+    this.setState({ showModal: false });
+  };
+
+  deleteBook = isbn => {
+    const books = this.state.books;
+    const index = books.findIndex(b => b.isbn === isbn);
+    books.splice(index, 1);
+    this.setState({ books });
   };
 
   loadSampleBooks = () => {
@@ -89,22 +121,26 @@ class App extends React.Component {
           books={this.state.books}
           filters={this.state.filters}
           sort={this.state.sort}
+          editMode={this.state.editMode}
+          loadBook={this.loadBook}
+          deleteBook={this.deleteBook}
         />
-        <BookForm
-          toggleModal={this.toggleModal}
-          showModal={this.state.showModal}
-          editBook={this.editBook}
-          saveBook={this.saveBook}
-          editing={this.state.editing}
+        <Footer
+          editMode={this.state.editMode}
+          createNewBook={this.createNewBook}
+          loadSampleBooks={this.loadSampleBooks}
+          toggleEditMode={this.toggleEditMode}
         />
-        <footer>
-          <button className="btn btn-secondary" onClick={this.loadSampleBooks}>
-            Load Sample Books
-          </button>
-          <button className="btn btn-secondary" onClick={this.toggleModal}>
-            Add New Book
-          </button>
-        </footer>
+        {this.state.editMode && (
+          <BookForm
+            editing={this.state.editing}
+            showModal={this.state.showModal}
+            createNewBook={this.createNewBook}
+            editBook={this.editBook}
+            saveBook={this.saveBook}
+            toggleModal={this.toggleModal}
+          />
+        )}
       </main>
     );
   }

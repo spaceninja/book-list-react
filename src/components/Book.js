@@ -19,6 +19,14 @@ class Book extends React.Component {
     }).isRequired
   };
 
+  handleEdit = () => {
+    this.props.loadBook(this.props.index);
+  };
+
+  handleDelete = () => {
+    this.props.deleteBook(this.props.index);
+  };
+
   render() {
     const { ...book } = this.props.details;
     let classes = "book";
@@ -27,31 +35,49 @@ class Book extends React.Component {
 
     return (
       <li className={classes}>
-        <h2 className="book--headline">
-          <span className="book--title">{book.title}</span>
+        <h2 className="book__headline">
+          <span className="book__title">{book.title}</span>
           {book.series && " "}
-          {book.series && <span className="book--series">({book.series})</span>}
+          {book.series && <span className="book__series">({book.series})</span>}
         </h2>
-        <p className="book--author">by {reverseName(book.author)}</p>
-        <p className="book--rating num">
+        <p className="book__author">by {reverseName(book.author)}</p>
+        <p className="book__rating num">
           <span className="sr-only">Rating:</span> {book.rating.toFixed(1)}
         </p>
-        <p className="book--length num">
+        <p className="book__length num">
           <span className="sr-only">Length:</span> {book.length}p
         </p>
         {book.textSnippet && (
           <blockquote>
-            <p className="book--snippet">{book.textSnippet}</p>
+            <p className="book__snippet">{book.textSnippet}</p>
           </blockquote>
         )}
         {(book.source || book.note) && (
-          <p className="book--recommendation">
+          <p className="book__recommendation">
             {book.source && (
-              <span className="book--source">Recommended by {book.source}</span>
+              <span className="book__source">Recommended by {book.source}</span>
             )}
             {book.source && book.note && ": "}
-            {book.note && <q className="book--note">{book.note}</q>}
+            {book.note && <q className="book__note">{book.note}</q>}
           </p>
+        )}
+        {this.props.editMode && (
+          <div className="book__actions">
+            <button
+              className="btn btn-sm btn-primary"
+              type="button"
+              onClick={this.handleEdit}
+            >
+              Edit
+            </button>
+            <button
+              className="btn btn-sm btn-secondary"
+              type="button"
+              onClick={this.handleDelete}
+            >
+              Delete
+            </button>
+          </div>
         )}
       </li>
     );

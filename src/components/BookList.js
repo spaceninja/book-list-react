@@ -37,7 +37,14 @@ class BookList extends React.Component {
       return (
         <ul className="book-list">
           {books.map((book, i) => (
-            <Book key={book.isbn} index={book.isbn} details={books[i]} />
+            <Book
+              key={book.isbn}
+              index={book.isbn}
+              details={books[i]}
+              deleteBook={this.props.deleteBook}
+              loadBook={this.props.loadBook}
+              editMode={this.props.editMode}
+            />
           ))}
         </ul>
       );

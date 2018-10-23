@@ -264,7 +264,7 @@ blockquote {
     }
 }
 
-.book--headline {
+.book__headline {
     color: #333333;
     font-weight: 600;
     line-height: 1.2;
@@ -272,18 +272,18 @@ blockquote {
     margin-right: 4rem;
 }
 
-.book--series {
+.book__series {
     font-weight: 300;
     opacity: 0.5;
 }
 
-.book--author {
+.book__author {
     line-height: 1.2;
     margin-right: 4rem;
     opacity: 0.7;
 }
 
-.book--rating {
+.book__rating {
     font-size: 2em;
     font-weight: 200;
     line-height: 1;
@@ -295,7 +295,7 @@ blockquote {
     width: 4.5rem;
 }
 
-.book--length {
+.book__length {
     line-height: 1;
     opacity: 0.5;
     position: absolute;
@@ -305,20 +305,26 @@ blockquote {
     width: 4.5rem;
 }
 
-.book--snippet {
+.book__snippet {
     @include wrap_long_words();
 }
 
-.book--recommendation {
+.book__recommendation {
     background: #f3f3f3;
     margin: 0 -0.5em;
     opacity: 0.7;
     padding: 0.4em 0.75em;
 }
 
-.book--note {
+.book__note {
     @include wrap_long_words();
     font-style: italic;
+}
+
+.book__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
 }
 
 //
@@ -413,6 +419,10 @@ blockquote {
     + .btn {
         margin-left: 1em;
     }
+}
+
+.btn-sm {
+    font-size: 14px;
 }
 
 .btn-primary {
