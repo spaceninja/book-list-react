@@ -43,7 +43,7 @@ class BookList extends React.Component {
               details={books[i]}
               deleteBook={this.props.deleteBook}
               loadBook={this.props.loadBook}
-              editMode={this.props.editMode}
+              adminMode={this.props.adminMode}
             />
           ))}
         </ul>

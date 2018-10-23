@@ -1,6 +1,40 @@
 import React from "react";
+import { confirmAlert } from "react-confirm-alert";
 
 class BookForm extends React.Component {
+  handleConfirmSubmit = e => {
+    e.preventDefault();
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="confirm-dialog">
+            <h3 className="confirm-dialog__title">Edit Existing Book?</h3>
+            <p className="confirm-dialog__message">
+              You are about to update a book that's already in the book list.
+              Are you sure you want to do that? Pressing 'cancel' will return
+              you to the edit form. Double-check your ISBN number to avoid
+              problems.
+            </p>
+            <div className="confirm-dialog__actions">
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  this.props.saveBook();
+                  onClose();
+                }}
+              >
+                Edit Book
+              </button>
+              <button className="btn btn-secondary" onClick={onClose}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        );
+      }
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.saveBook();
@@ -21,12 +55,18 @@ class BookForm extends React.Component {
   };
 
   render() {
-    const { ...book } = this.props.editing;
+    const { ...book } = this.props.bookFormContent;
     let classes = "modal";
-    if (this.props.showModal) classes += " is-visible";
+    if (this.props.showEditForm) classes += " is-visible";
+    let handler = this.handleSubmit;
+    const isbnCollision = this.props.isbnList.find(x => x === book.isbn);
+    if (isbnCollision && this.props.editing === false) {
+      console.log("DANGER: ISBN COLLISION IN NEW BOOK MODE!", book.isbn);
+      handler = this.handleConfirmSubmit;
+    }
     return (
       <div className={classes}>
-        <form className="form modal-contents" onSubmit={this.handleSubmit}>
+        <form className="form modal-contents" onSubmit={handler}>
           <div className="form-group">
             <label htmlFor="book-title">Title</label>
             <input

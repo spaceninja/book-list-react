@@ -6,11 +6,11 @@ class Footer extends React.Component {
       <footer>
         <button
           className="btn btn-secondary"
-          onClick={this.props.toggleEditMode}
+          onClick={this.props.toggleadminMode}
         >
-          {this.props.editMode ? "Exit" : "Enter"} Edit Mode
+          {this.props.adminMode ? "Exit" : "Enter"} Admin Mode
         </button>
-        {this.props.editMode && (
+        {this.props.adminMode && (
           <React.Fragment>
             <button
               className="btn btn-secondary"

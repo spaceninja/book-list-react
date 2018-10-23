@@ -12,9 +12,10 @@ class App extends React.Component {
     books: [],
     filters: [],
     sort: {},
-    editing: {},
-    showModal: false,
-    editMode: false
+    bookFormContent: {},
+    showEditForm: false,
+    adminMode: false,
+    editing: false
   };
 
   sortOptions = {
@@ -26,13 +27,13 @@ class App extends React.Component {
   };
 
   toggleModal = () => {
-    const showModal = !this.state.showModal;
-    this.setState({ showModal });
+    const showEditForm = !this.state.showEditForm;
+    this.setState({ showEditForm });
   };
 
-  toggleEditMode = () => {
-    const editMode = !this.state.editMode;
-    this.setState({ editMode });
+  toggleadminMode = () => {
+    const adminMode = !this.state.adminMode;
+    this.setState({ adminMode });
   };
 
   setSort = value => {
@@ -57,40 +58,46 @@ class App extends React.Component {
   };
 
   createNewBook = () => {
-    this.setState({ editing: {} });
-    this.setState({ showModal: true });
+    this.setState({ bookFormContent: {} });
+    this.setState({ editing: false });
+    this.setState({ showEditForm: true });
   };
 
   loadBook = isbn => {
     const books = this.state.books;
     const index = books.findIndex(b => b.isbn === isbn);
-    const editing = books[index];
-    this.setState({ editing });
-    this.setState({ showModal: true });
+    const bookFormContent = books[index];
+    this.setState({ bookFormContent });
+    this.setState({ editing: true });
+    this.setState({ showEditForm: true });
   };
 
   editBook = (key, value) => {
-    const editing = { ...this.state.editing };
+    const bookFormContent = { ...this.state.bookFormContent };
     if (value) {
-      editing[key] = value;
+      bookFormContent[key] = value;
     } else {
-      delete editing[key];
+      delete bookFormContent[key];
     }
-    this.setState({ editing });
+    this.setState({ bookFormContent });
   };
 
   saveBook = () => {
+    console.log("SAVE BOOK");
     const books = this.state.books;
-    const newBook = { ...this.state.editing };
+    const newBook = { ...this.state.bookFormContent };
     const index = books.findIndex(b => b.isbn === newBook.isbn);
+    console.log(newBook, index);
     if (index >= 0) {
-      books.splice(index, 1).push(newBook);
+      books.splice(index, 1);
+      books.push(newBook);
     } else {
       books.push(newBook);
     }
     this.setState({ books });
-    this.setState({ editing: {} });
-    this.setState({ showModal: false });
+    this.setState({ bookFormContent: {} });
+    this.setState({ editing: false });
+    this.setState({ showEditForm: false });
   };
 
   deleteBook = isbn => {
@@ -113,7 +120,7 @@ class App extends React.Component {
     return (
       <main>
         <header>
-          <h1>Reading List</h1>
+          <h1 className="page-title">Reading List</h1>
           <FilterBy setFilter={this.setFilter} />
           <SortBy setSort={this.setSort} sort={this.state.sort} />
         </header>
@@ -121,20 +128,22 @@ class App extends React.Component {
           books={this.state.books}
           filters={this.state.filters}
           sort={this.state.sort}
-          editMode={this.state.editMode}
+          adminMode={this.state.adminMode}
           loadBook={this.loadBook}
           deleteBook={this.deleteBook}
         />
         <Footer
-          editMode={this.state.editMode}
+          adminMode={this.state.adminMode}
           createNewBook={this.createNewBook}
           loadSampleBooks={this.loadSampleBooks}
-          toggleEditMode={this.toggleEditMode}
+          toggleadminMode={this.toggleadminMode}
         />
-        {this.state.editMode && (
+        {this.state.adminMode && (
           <BookForm
+            bookFormContent={this.state.bookFormContent}
+            showEditForm={this.state.showEditForm}
             editing={this.state.editing}
-            showModal={this.state.showModal}
+            isbnList={this.state.books.map(b => b.isbn)}
             createNewBook={this.createNewBook}
             editBook={this.editBook}
             saveBook={this.saveBook}

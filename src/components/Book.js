@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { confirmAlert } from "react-confirm-alert";
 import { reverseName } from "../helpers";
 
 class Book extends React.Component {
@@ -24,7 +25,32 @@ class Book extends React.Component {
   };
 
   handleDelete = () => {
-    this.props.deleteBook(this.props.index);
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="confirm-dialog">
+            <h3 className="confirm-dialog__title">Delete This Book?</h3>
+            <p className="confirm-dialog__message">
+              Are you sure you want to delete this book from the list?
+            </p>
+            <div className="confirm-dialog__actions">
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  this.props.deleteBook(this.props.index);
+                  onClose();
+                }}
+              >
+                Delete Book
+              </button>
+              <button className="btn btn-secondary" onClick={onClose}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        );
+      }
+    });
   };
 
   render() {
@@ -61,7 +87,7 @@ class Book extends React.Component {
             {book.note && <q className="book__note">{book.note}</q>}
           </p>
         )}
-        {this.props.editMode && (
+        {this.props.adminMode && (
           <div className="book__actions">
             <button
               className="btn btn-sm btn-primary"

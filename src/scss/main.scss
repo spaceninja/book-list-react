@@ -74,7 +74,7 @@ header {
     }
 }
 
-h1 {
+.page-title {
     font-weight: 400;
     margin: 0;
 
@@ -335,7 +335,6 @@ blockquote {
     grid-gap: 1em;
     grid-template-columns: 1fr;
     margin: 1em auto;
-    max-width: 600px;
 
     @media only screen and (min-width: 640px) {
         grid-template-columns: 1fr 1fr;
@@ -468,7 +467,41 @@ blockquote {
     border-radius: 0.25em;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     margin: auto;
+    max-width: 600px;
     padding: 1em;
     position: relative;
     z-index: 1;
+}
+
+//
+// React Confirm Alert
+//
+.react-confirm-alert-body-element {
+    overflow: hidden;
+}
+
+.react-confirm-alert-svg {
+    display: none;
+}
+
+.react-confirm-alert-overlay {
+    @extend .modal;
+    display: flex;
+    z-index: 99;
+}
+
+.react-confirm-alert {
+    @extend .modal-contents;
+}
+
+.confirm-dialog__title {
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.33em;
+    margin-top: 0;
+}
+
+.confirm-dialog__actions {
+    margin-top: 1em;
 }
