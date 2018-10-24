@@ -20,7 +20,8 @@ class App extends React.Component {
     bookFormContent: {},
     showEditForm: false,
     adminMode: false,
-    editing: false
+    editing: false,
+    isbnCollision: false
   };
 
   sortOptions = {
@@ -62,6 +63,15 @@ class App extends React.Component {
     this.setState({ filters });
   };
 
+  checkForCollision = isbn => {
+    const isbnList = this.state.books.map(b => b.isbn);
+    console.log("ISBN List", isbnList);
+    console.log("ISBN", isbn);
+    const isbnCollision = isbnList.includes(isbn);
+    console.log("COLLISION", isbnCollision);
+    this.setState({ isbnCollision });
+  };
+
   createNewBook = () => {
     this.setState({ bookFormContent: {} });
     this.setState({ editing: false });
@@ -81,6 +91,9 @@ class App extends React.Component {
     const bookFormContent = { ...this.state.bookFormContent };
     if (value) {
       bookFormContent[key] = value;
+      if (key === "isbn") {
+        this.checkForCollision(value);
+      }
     } else {
       delete bookFormContent[key];
     }
@@ -146,7 +159,7 @@ class App extends React.Component {
             bookFormContent={this.state.bookFormContent}
             showEditForm={this.state.showEditForm}
             editing={this.state.editing}
-            isbnList={this.state.books.map(b => b.isbn)}
+            isbnCollision={this.state.isbnCollision}
             createNewBook={this.createNewBook}
             editBook={this.editBook}
             saveBook={this.saveBook}

@@ -20,10 +20,10 @@ class BookForm extends React.Component {
     createNewBook: PropTypes.func.isRequired,
     editBook: PropTypes.func.isRequired,
     editing: PropTypes.bool.isRequired,
-    isbnList: PropTypes.array.isRequired,
     saveBook: PropTypes.func.isRequired,
     showEditForm: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired
+    isbnCollision: PropTypes.bool.isRequired
   };
 
   handleConfirmSubmit = e => {
@@ -82,8 +82,7 @@ class BookForm extends React.Component {
     let classes = "modal";
     if (this.props.showEditForm) classes += " is-visible";
     let handler = this.handleSubmit;
-    const isbnCollision = this.props.isbnList.find(x => x === book.isbn);
-    if (isbnCollision && this.props.editing === false) {
+    if (this.props.isbnCollision && this.props.editing === false) {
       handler = this.handleConfirmSubmit;
     }
     return (
