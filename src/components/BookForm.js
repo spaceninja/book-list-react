@@ -22,7 +22,7 @@ class BookForm extends React.Component {
     editing: PropTypes.bool.isRequired,
     saveBook: PropTypes.func.isRequired,
     showEditForm: PropTypes.bool.isRequired,
-    toggleModal: PropTypes.func.isRequired
+    toggleModal: PropTypes.func.isRequired,
     isbnCollision: PropTypes.bool.isRequired
   };
 
