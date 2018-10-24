@@ -104,8 +104,7 @@ class App extends React.Component {
     const newBook = { ...this.state.bookFormContent };
     const index = books.findIndex(b => b.isbn === newBook.isbn);
     if (index >= 0) {
-      books.splice(index, 1);
-      books.push(newBook);
+      books.splice(index, 1, newBook);
     } else {
       books.push(newBook);
     }
