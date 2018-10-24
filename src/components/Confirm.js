@@ -8,14 +8,14 @@ const Confirm = props => (
       <button
         className="btn btn-primary"
         onClick={() => {
-          props.action(props.option)
-          props.onClose()
+          props.action(props.option);
+          props.onClose();
         }}
       >
         {props.yesButton}
       </button>
       <button className="btn btn-secondary" onClick={props.onClose}>
-        {props.noButton}
+        {props.noButton || "Cancel"}
       </button>
     </div>
   </div>

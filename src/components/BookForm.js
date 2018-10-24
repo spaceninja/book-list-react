@@ -31,13 +31,16 @@ class BookForm extends React.Component {
     e.preventDefault();
     confirmAlert({
       customUI: ({ onClose }) => {
+        const message =
+          "You are about to update a book that’s already in the book list. " +
+          "Are you sure you want to do that? Pressing Cancel will return you " +
+          "to the edit form. Double-check your ISBN number to avoid problems.";
         return (
           <Confirm
             onClose={onClose}
             title="Edit Existing Book?"
-            message="You are about to update a book that’s already in the book list. Are you sure you want to do that? Pressing Cancel will return you to the edit form. Double-check your ISBN number to avoid problems."
+            message={message}
             yesButton="Edit Book"
-            noButton="Cancel"
             action={this.props.saveBook}
           />
         );

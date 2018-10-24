@@ -38,7 +38,6 @@ class Book extends React.Component {
             title="Delete This Book?"
             message="Are you sure you want to delete this book from the list?"
             yesButton="Delete Book"
-            noButton="Cancel"
             action={this.props.deleteBook}
             option={this.props.isbn}
           />
