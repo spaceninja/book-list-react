@@ -80,7 +80,6 @@ class App extends React.Component {
 
   loadBook = isbn => {
     const books = this.state.books;
-    const index = books.findIndex(b => b.isbn === isbn);
     const bookFormContent = books.find(b => b.isbn === isbn);
     this.setState({ bookFormContent });
     this.setState({ editing: true });
