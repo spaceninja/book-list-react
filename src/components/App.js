@@ -88,11 +88,9 @@ class App extends React.Component {
   };
 
   saveBook = () => {
-    console.log("SAVE BOOK");
     const books = this.state.books;
     const newBook = { ...this.state.bookFormContent };
     const index = books.findIndex(b => b.isbn === newBook.isbn);
-    console.log(newBook, index);
     if (index >= 0) {
       books.splice(index, 1);
       books.push(newBook);

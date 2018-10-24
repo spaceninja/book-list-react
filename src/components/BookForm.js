@@ -85,7 +85,6 @@ class BookForm extends React.Component {
     let handler = this.handleSubmit;
     const isbnCollision = this.props.isbnList.find(x => x === book.isbn);
     if (isbnCollision && this.props.editing === false) {
-      console.log("DANGER: ISBN COLLISION IN NEW BOOK MODE!", book.isbn);
       handler = this.handleConfirmSubmit;
     }
     return (
