@@ -11,7 +11,12 @@ class App extends React.Component {
   state = {
     books: [],
     filters: [],
-    sort: {},
+    sort: {
+      firstBy: "rating",
+      firstByOrder: "descending",
+      thenBy: "length",
+      thenByOrder: "ascending"
+    },
     bookFormContent: {},
     showEditForm: false,
     adminMode: false,
@@ -31,7 +36,7 @@ class App extends React.Component {
     this.setState({ showEditForm });
   };
 
-  toggleadminMode = () => {
+  toggleAdminMode = () => {
     const adminMode = !this.state.adminMode;
     this.setState({ adminMode });
   };
@@ -136,7 +141,7 @@ class App extends React.Component {
           adminMode={this.state.adminMode}
           createNewBook={this.createNewBook}
           loadSampleBooks={this.loadSampleBooks}
-          toggleadminMode={this.toggleadminMode}
+          toggleAdminMode={this.toggleAdminMode}
         />
         {this.state.adminMode && (
           <BookForm

@@ -1,7 +1,31 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { confirmAlert } from "react-confirm-alert";
 
 class BookForm extends React.Component {
+  static propTypes = {
+    bookFormContent: PropTypes.shape({
+      title: PropTypes.string,
+      author: PropTypes.string,
+      isbn: PropTypes.string,
+      rating: PropTypes.number,
+      length: PropTypes.number,
+      series: PropTypes.string,
+      textSnippet: PropTypes.string,
+      source: PropTypes.string,
+      note: PropTypes.string,
+      purchased: PropTypes.bool,
+      prioritize: PropTypes.bool
+    }).isRequired,
+    createNewBook: PropTypes.func.isRequired,
+    editBook: PropTypes.func.isRequired,
+    editing: PropTypes.bool.isRequired,
+    isbnList: PropTypes.array.isRequired,
+    saveBook: PropTypes.func.isRequired,
+    showEditForm: PropTypes.bool.isRequired,
+    toggleModal: PropTypes.func.isRequired
+  };
+
   handleConfirmSubmit = e => {
     e.preventDefault();
     confirmAlert({

@@ -17,11 +17,15 @@ class Book extends React.Component {
       note: PropTypes.string,
       purchased: PropTypes.bool,
       prioritize: PropTypes.bool
-    }).isRequired
+    }).isRequired,
+    adminMode: PropTypes.bool.isRequired,
+    deleteBook: PropTypes.func.isRequired,
+    isbn: PropTypes.string.isRequired,
+    loadBook: PropTypes.func.isRequired
   };
 
   handleEdit = () => {
-    this.props.loadBook(this.props.index);
+    this.props.loadBook(this.props.isbn);
   };
 
   handleDelete = () => {
@@ -37,7 +41,7 @@ class Book extends React.Component {
               <button
                 className="btn btn-primary"
                 onClick={() => {
-                  this.props.deleteBook(this.props.index);
+                  this.props.deleteBook(this.props.isbn);
                   onClose();
                 }}
               >

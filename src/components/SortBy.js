@@ -1,6 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class SortBy extends React.Component {
+  static propTypes = {
+    setSort: PropTypes.func.isRequired,
+    sort: PropTypes.shape({
+      firstBy: PropTypes.string.isRequired,
+      firstByOrder: PropTypes.string.isRequired,
+      thenBy: PropTypes.string.isRequired,
+      thenByOrder: PropTypes.string.isRequired
+    }).isRequired
+  };
+
   handleChange = e => {
     this.props.setSort(e.currentTarget.value);
   };

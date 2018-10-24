@@ -5,8 +5,17 @@ import { firstBy } from "thenby";
 
 class BookList extends React.Component {
   static propTypes = {
+    adminMode: PropTypes.bool.isRequired,
     books: PropTypes.array.isRequired,
-    filters: PropTypes.array.isRequired
+    deleteBook: PropTypes.func.isRequired,
+    filters: PropTypes.array.isRequired,
+    loadBook: PropTypes.func.isRequired,
+    sort: PropTypes.shape({
+      firstBy: PropTypes.string.isRequired,
+      firstByOrder: PropTypes.string.isRequired,
+      thenBy: PropTypes.string.isRequired,
+      thenByOrder: PropTypes.string.isRequired
+    }).isRequired
   };
 
   applyFilters = books => {
@@ -39,7 +48,7 @@ class BookList extends React.Component {
           {books.map((book, i) => (
             <Book
               key={book.isbn}
-              index={book.isbn}
+              isbn={book.isbn}
               details={books[i]}
               deleteBook={this.props.deleteBook}
               loadBook={this.props.loadBook}
