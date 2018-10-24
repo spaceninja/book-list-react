@@ -34,10 +34,9 @@ class BookForm extends React.Component {
           <div className="confirm-dialog">
             <h3 className="confirm-dialog__title">Edit Existing Book?</h3>
             <p className="confirm-dialog__message">
-              You are about to update a book that's already in the book list.
-              Are you sure you want to do that? Pressing 'cancel' will return
-              you to the edit form. Double-check your ISBN number to avoid
-              problems.
+              You are about to update a book that is already in the book list.
+              Are you sure you want to do that? Pressing Cancel will return you
+              to the edit form. Double-check your ISBN number to avoid problems.
             </p>
             <div className="confirm-dialog__actions">
               <button
