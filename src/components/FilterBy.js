@@ -1,6 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class FilterBy extends React.Component {
+  static propTypes = {
+    setFilter: PropTypes.func.isRequired
+  };
+
   handleChange = e => {
     this.props.setFilter(e.currentTarget.value, e.currentTarget.checked);
   };
