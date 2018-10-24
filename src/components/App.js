@@ -65,10 +65,7 @@ class App extends React.Component {
 
   checkForCollision = isbn => {
     const isbnList = this.state.books.map(b => b.isbn);
-    console.log("ISBN List", isbnList);
-    console.log("ISBN", isbn);
     const isbnCollision = isbnList.includes(isbn);
-    console.log("COLLISION", isbnCollision);
     this.setState({ isbnCollision });
   };
 
