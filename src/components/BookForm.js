@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Confirm from "./Confirm";
 import { confirmAlert } from "react-confirm-alert";
 
 class BookForm extends React.Component {
@@ -31,28 +32,14 @@ class BookForm extends React.Component {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className="confirm-dialog">
-            <h3 className="confirm-dialog__title">Edit Existing Book?</h3>
-            <p className="confirm-dialog__message">
-              You are about to update a book that’s already in the book list.
-              Are you sure you want to do that? Pressing Cancel will return you
-              to the edit form. Double-check your ISBN number to avoid problems.
-            </p>
-            <div className="confirm-dialog__actions">
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  this.props.saveBook();
-                  onClose();
-                }}
-              >
-                Edit Book
-              </button>
-              <button className="btn btn-secondary" onClick={onClose}>
-                Cancel
-              </button>
-            </div>
-          </div>
+          <Confirm
+            onClose={onClose}
+            title="Edit Existing Book?"
+            message="You are about to update a book that’s already in the book list. Are you sure you want to do that? Pressing Cancel will return you to the edit form. Double-check your ISBN number to avoid problems."
+            yesButton="Edit Book"
+            noButton="Cancel"
+            action={this.props.saveBook}
+          />
         );
       }
     });

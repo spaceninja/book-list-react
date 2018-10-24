@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Confirm from "./Confirm";
 import { confirmAlert } from "react-confirm-alert";
 import { reverseName } from "../helpers";
 
@@ -32,26 +33,15 @@ class Book extends React.Component {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className="confirm-dialog">
-            <h3 className="confirm-dialog__title">Delete This Book?</h3>
-            <p className="confirm-dialog__message">
-              Are you sure you want to delete this book from the list?
-            </p>
-            <div className="confirm-dialog__actions">
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  this.props.deleteBook(this.props.isbn);
-                  onClose();
-                }}
-              >
-                Delete Book
-              </button>
-              <button className="btn btn-secondary" onClick={onClose}>
-                Cancel
-              </button>
-            </div>
-          </div>
+          <Confirm
+            onClose={onClose}
+            title="Delete This Book?"
+            message="Are you sure you want to delete this book from the list?"
+            yesButton="Delete Book"
+            noButton="Cancel"
+            action={this.props.deleteBook}
+            option={this.props.isbn}
+          />
         );
       }
     });
