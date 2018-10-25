@@ -82,7 +82,7 @@ class BookForm extends React.Component {
   };
 
   render() {
-    const { ...book } = this.state.book;
+    const { book } = this.state;
     let handler = this.handleSubmit;
     if (this.props.isbnCollision && !this.props.selectedBook.isbn) {
       handler = this.handleConfirmSubmit;
