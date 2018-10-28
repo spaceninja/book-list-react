@@ -56,14 +56,14 @@ class App extends React.Component {
     if (value) {
       filters.push(name);
     } else {
-      const i = filters.indexOf(name);
-      if (i >= 0) filters.splice(i, 1);
+      const index = filters.indexOf(name);
+      if (index >= 0) filters.splice(index, 1);
     }
     this.setState({ filters });
   };
 
   checkForCollision = isbn => {
-    const isbnList = this.state.books.map(b => b.isbn);
+    const isbnList = this.state.books.map(book => book.isbn);
     const isbnCollision = isbnList.includes(isbn);
     this.setState({ isbnCollision });
   };
@@ -75,16 +75,16 @@ class App extends React.Component {
 
   loadBook = isbn => {
     const books = this.state.books;
-    const selectedBook = books.find(b => b.isbn === isbn);
+    const selectedBook = books.find(book => book.isbn === isbn);
     this.setState({ selectedBook });
     this.setState({ showEditForm: true });
   };
 
   saveBook = newBook => {
     const books = this.state.books;
-    const i = books.findIndex(b => b.isbn === newBook.isbn);
-    if (i >= 0) {
-      books.splice(i, 1, newBook);
+    const index = books.findIndex(book => book.isbn === newBook.isbn);
+    if (index >= 0) {
+      books.splice(index, 1, newBook);
     } else {
       books.push(newBook);
     }
@@ -95,8 +95,8 @@ class App extends React.Component {
 
   deleteBook = isbn => {
     const books = this.state.books;
-    const i = books.findIndex(b => b.isbn === isbn);
-    books.splice(i, 1);
+    const index = books.findIndex(book => book.isbn === isbn);
+    books.splice(index, 1);
     this.setState({ books });
   };
 
