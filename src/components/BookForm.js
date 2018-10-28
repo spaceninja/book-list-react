@@ -5,7 +5,7 @@ import { confirmAlert } from "react-confirm-alert";
 
 class BookForm extends React.Component {
   static propTypes = {
-    bookFormContent: PropTypes.shape({
+    selectedBook: PropTypes.shape({
       title: PropTypes.string,
       author: PropTypes.string,
       isbn: PropTypes.string,
@@ -18,19 +18,34 @@ class BookForm extends React.Component {
       purchased: PropTypes.bool,
       prioritize: PropTypes.bool
     }).isRequired,
+    checkForCollision: PropTypes.func.isRequired,
     createNewBook: PropTypes.func.isRequired,
-    editBook: PropTypes.func.isRequired,
-    editing: PropTypes.bool.isRequired,
     saveBook: PropTypes.func.isRequired,
-    showEditForm: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired,
     isbnCollision: PropTypes.bool.isRequired
+  };
+
+  state = {
+    book: {
+      title: this.props.selectedBook.title || "",
+      author: this.props.selectedBook.author || "",
+      isbn: this.props.selectedBook.isbn || "",
+      rating: this.props.selectedBook.rating || "",
+      length: this.props.selectedBook.length || "",
+      series: this.props.selectedBook.series || "",
+      textSnippet: this.props.selectedBook.textSnippet || "",
+      source: this.props.selectedBook.source || "",
+      note: this.props.selectedBook.note || "",
+      purchased: this.props.selectedBook.purchased || false,
+      prioritize: this.props.selectedBook.prioritize || false
+    }
   };
 
   handleConfirmSubmit = e => {
     e.preventDefault();
     confirmAlert({
       customUI: ({ onClose }) => {
+        const book = this.state.book;
         const message =
           "You are about to update a book that’s already in the book list. " +
           "Are you sure you want to do that? Pressing Cancel will return you " +
@@ -42,6 +57,7 @@ class BookForm extends React.Component {
             message={message}
             yesButton="Edit Book"
             action={this.props.saveBook}
+            option={book}
           />
         );
       }
@@ -50,10 +66,12 @@ class BookForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.saveBook();
+    const book = this.state.book;
+    this.props.saveBook(book);
   };
 
   handleChange = e => {
+    const book = this.state.book;
     const name = e.currentTarget.name;
     const type = e.currentTarget.type;
     let value;
@@ -64,19 +82,21 @@ class BookForm extends React.Component {
     } else {
       value = e.currentTarget.value;
     }
-    this.props.editBook(name, value);
+    if (name === "isbn") {
+      this.props.checkForCollision(value);
+    }
+    book[name] = value;
+    this.setState({ book });
   };
 
   render() {
-    const { ...book } = this.props.bookFormContent;
-    let classes = "modal";
-    if (this.props.showEditForm) classes += " is-visible";
+    const book = this.state.book;
     let handler = this.handleSubmit;
-    if (this.props.isbnCollision && this.props.editing === false) {
+    if (this.props.isbnCollision && !this.props.selectedBook.isbn) {
       handler = this.handleConfirmSubmit;
     }
     return (
-      <div className={classes}>
+      <div className="modal is-visible">
         <form className="form modal-contents" onSubmit={handler}>
           <div className="form-group">
             <label htmlFor="book-title">Title</label>
@@ -86,7 +106,7 @@ class BookForm extends React.Component {
               id="book-title"
               name="title"
               required
-              value={book.title || ""}
+              value={book.title}
               onChange={this.handleChange}
             />
           </div>
@@ -98,7 +118,7 @@ class BookForm extends React.Component {
               id="book-author"
               name="author"
               required
-              value={book.author || ""}
+              value={book.author}
               onChange={this.handleChange}
             />
           </div>
@@ -110,7 +130,7 @@ class BookForm extends React.Component {
               id="book-isbn"
               name="isbn"
               required
-              value={book.isbn || ""}
+              value={book.isbn}
               onChange={this.handleChange}
             />
           </div>
@@ -121,7 +141,7 @@ class BookForm extends React.Component {
               className="form-control"
               id="book-series"
               name="series"
-              value={book.series || ""}
+              value={book.series}
               onChange={this.handleChange}
             />
           </div>
@@ -136,7 +156,7 @@ class BookForm extends React.Component {
               id="book-rating"
               name="rating"
               required
-              value={book.rating || ""}
+              value={book.rating}
               onChange={this.handleChange}
             />
           </div>
@@ -149,7 +169,7 @@ class BookForm extends React.Component {
                 id="book-length"
                 name="length"
                 required
-                value={book.length || ""}
+                value={book.length}
                 onChange={this.handleChange}
               />
               <span className="input-group-append">pages</span>
@@ -162,7 +182,7 @@ class BookForm extends React.Component {
               id="book-textsnippet"
               name="textSnippet"
               rows="3"
-              value={book.textSnippet || ""}
+              value={book.textSnippet}
               onChange={this.handleChange}
             />
             <small className="form-text text-muted">
@@ -178,7 +198,7 @@ class BookForm extends React.Component {
                 className="form-control"
                 id="book-source"
                 name="source"
-                value={book.source || ""}
+                value={book.source}
                 onChange={this.handleChange}
               />
             </span>
@@ -190,7 +210,7 @@ class BookForm extends React.Component {
               id="book-note"
               name="note"
               rows="3"
-              value={book.note || ""}
+              value={book.note}
               onChange={this.handleChange}
             />
             <small className="form-text text-muted">
@@ -203,7 +223,7 @@ class BookForm extends React.Component {
               className="form-check-input"
               id="book-purchased"
               name="purchased"
-              checked={book.purchased || ""}
+              checked={book.purchased}
               onChange={this.handleChange}
             />
             <label className="form-check-label" htmlFor="book-purchased">
@@ -216,7 +236,7 @@ class BookForm extends React.Component {
               className="form-check-input"
               id="book-prioritize"
               name="prioritize"
-              checked={book.prioritize || ""}
+              checked={book.prioritize}
               onChange={this.handleChange}
             />
             <label className="form-check-label" htmlFor="book-prioritize">
