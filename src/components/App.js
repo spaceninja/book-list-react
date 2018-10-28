@@ -6,6 +6,7 @@ import BookForm from "./BookForm";
 import Footer from "./Footer";
 import initBooks from "../init-books";
 import sampleBooks from "../sample-books";
+import { clean } from "../helpers";
 
 class App extends React.Component {
   state = {
@@ -82,6 +83,7 @@ class App extends React.Component {
 
   saveBook = newBook => {
     const books = this.state.books;
+    clean(newBook);
     const index = books.findIndex(book => book.isbn === newBook.isbn);
     if (index >= 0) {
       books.splice(index, 1, newBook);

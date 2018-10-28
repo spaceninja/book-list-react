@@ -26,7 +26,19 @@ class BookForm extends React.Component {
   };
 
   state = {
-    book: { ...this.props.selectedBook }
+    book: {
+      title: this.props.selectedBook.title || "",
+      author: this.props.selectedBook.author || "",
+      isbn: this.props.selectedBook.isbn || "",
+      rating: this.props.selectedBook.rating || "",
+      length: this.props.selectedBook.length || "",
+      series: this.props.selectedBook.series || "",
+      textSnippet: this.props.selectedBook.textSnippet || "",
+      source: this.props.selectedBook.source || "",
+      note: this.props.selectedBook.note || "",
+      purchased: this.props.selectedBook.purchased || false,
+      prioritize: this.props.selectedBook.prioritize || false
+    }
   };
 
   handleConfirmSubmit = e => {
@@ -59,7 +71,7 @@ class BookForm extends React.Component {
   };
 
   handleChange = e => {
-    const book = { ...this.state.book };
+    const book = this.state.book;
     const name = e.currentTarget.name;
     const type = e.currentTarget.type;
     let value;
@@ -73,16 +85,12 @@ class BookForm extends React.Component {
     if (name === "isbn") {
       this.props.checkForCollision(value);
     }
-    if (value) {
-      book[name] = value;
-    } else {
-      delete book[name];
-    }
+    book[name] = value;
     this.setState({ book });
   };
 
   render() {
-    const { book } = this.state;
+    const book = this.state.book;
     let handler = this.handleSubmit;
     if (this.props.isbnCollision && !this.props.selectedBook.isbn) {
       handler = this.handleConfirmSubmit;
