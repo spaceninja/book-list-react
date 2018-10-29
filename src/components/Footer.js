@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class Footer extends React.Component {
   static propTypes = {
     authenticate: PropTypes.func.isRequired,
-    logout: PropTypes.func.isRequired,
+    logOut: PropTypes.func.isRequired,
     createNewBook: PropTypes.func.isRequired,
     loadSampleBooks: PropTypes.func.isRequired,
     loadInitBooks: PropTypes.func.isRequired,
