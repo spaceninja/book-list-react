@@ -6,6 +6,7 @@ import { firstBy } from "thenby";
 class BookList extends React.Component {
   static propTypes = {
     adminMode: PropTypes.bool.isRequired,
+    loading: PropTypes.bool.isRequired,
     books: PropTypes.array.isRequired,
     deleteBook: PropTypes.func.isRequired,
     filters: PropTypes.array.isRequired,
@@ -58,7 +59,10 @@ class BookList extends React.Component {
         </ul>
       );
     } else {
-      return <p className="alert alert--error">No Books Found</p>;
+      if (this.props.loading) {
+        return <p>Loading…</p>;
+      }
+      return <p className="alert alert--warning">No Books Found</p>;
     }
   }
 }

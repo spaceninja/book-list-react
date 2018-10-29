@@ -7,6 +7,8 @@ import Footer from "./Footer";
 import initBooks from "../init-books";
 import sampleBooks from "../sample-books";
 import { clean } from "../helpers";
+import firebase from "firebase";
+import base, { firebaseApp } from "../base";
 
 class App extends React.Component {
   state = {
@@ -20,8 +22,10 @@ class App extends React.Component {
     },
     selectedBook: {},
     showEditForm: false,
+    authenticated: false,
     adminMode: false,
-    isbnCollision: false
+    isbnCollision: false,
+    loading: true
   };
 
   sortOptions = {
@@ -37,9 +41,26 @@ class App extends React.Component {
     this.setState({ showEditForm });
   };
 
-  toggleAdminMode = () => {
-    const adminMode = !this.state.adminMode;
-    this.setState({ adminMode });
+  logOut = async () => {
+    await firebase.auth().signOut();
+    this.setState({ authenticated: false });
+    this.setState({ adminMode: false });
+  };
+
+  authHandler = async authData => {
+    const owner = await base.fetch("owner", { context: this });
+    this.setState({ authenticated: true });
+    if (owner === authData.user.uid) {
+      this.setState({ adminMode: true });
+    }
+  };
+
+  authenticate = provider => {
+    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
+    firebaseApp
+      .auth()
+      .signInWithPopup(authProvider)
+      .then(this.authHandler);
   };
 
   setSort = value => {
@@ -106,9 +127,31 @@ class App extends React.Component {
     this.setState({ books: sampleBooks });
   };
 
-  componentDidMount() {
+  loadInitBooks = () => {
     this.setState({ books: initBooks });
-    this.setSort("rating");
+  };
+
+  componentDidMount() {
+    // sync state with firebase
+    this.ref = base.syncState("books", {
+      context: this,
+      state: "books",
+      asArray: true,
+      then() {
+        this.setState({ loading: false });
+      }
+    });
+
+    // check if the user is already logged into firebase
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.authHandler({ user });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
 
   render() {
@@ -124,14 +167,19 @@ class App extends React.Component {
           filters={this.state.filters}
           sort={this.state.sort}
           adminMode={this.state.adminMode}
+          loading={this.state.loading}
           loadBook={this.loadBook}
           deleteBook={this.deleteBook}
         />
         <Footer
           adminMode={this.state.adminMode}
+          authenticated={this.state.authenticated}
+          loading={this.state.loading}
           createNewBook={this.createNewBook}
+          loadInitBooks={this.loadInitBooks}
           loadSampleBooks={this.loadSampleBooks}
-          toggleAdminMode={this.toggleAdminMode}
+          authenticate={this.authenticate}
+          logOut={this.logOut}
         />
         {this.state.adminMode &&
           this.state.showEditForm && (
