@@ -1,7 +1,8 @@
 const books = [
   {
     title: "Gideon the Ninth",
-    author: "Muir, Tamsyn",
+    authorLast: "Muir",
+    authorFirst: "Tamsyn",
     isbn: "0000000001",
     rating: 0,
     length: 0,
@@ -16,7 +17,8 @@ const books = [
   },
   {
     title: "Middlegame",
-    author: "McGuire, Seanan",
+    authorLast: "McGuire",
+    authorFirst: "Seanan",
     isbn: "0000000002",
     rating: 0,
     length: 0,
@@ -27,7 +29,8 @@ const books = [
   },
   {
     title: "Static Ruin",
-    author: "White, Corey J",
+    authorLast: "White",
+    authorFirst: "Corey J",
     isbn: "1250195535",
     rating: 0,
     length: 224,
@@ -42,7 +45,8 @@ const books = [
   },
   {
     title: "Thin Air",
-    author: "Morgan, Richard K",
+    authorLast: "Morgan",
+    authorFirst: "Richard K",
     isbn: "0575075147",
     rating: 0,
     length: 400,
@@ -56,7 +60,8 @@ const books = [
   },
   {
     title: "A Conspiracy of Truths",
-    author: "Rowland, Alexandra",
+    authorLast: "Rowland",
+    authorFirst: "Alexandra",
     isbn: "1534412808",
     rating: 0,
     length: 432,
@@ -68,7 +73,8 @@ const books = [
   },
   {
     title: "Exit Strategy",
-    author: "Wells, Martha",
+    authorLast: "Wells",
+    authorFirst: "Martha",
     isbn: "1250191858",
     rating: 4.35,
     length: 176,
@@ -80,7 +86,8 @@ const books = [
   },
   {
     title: "Time's Convert",
-    author: "Harkness, Deborah",
+    authorLast: "Harkness",
+    authorFirst: "Deborah",
     isbn: "0399564519",
     rating: 4.13,
     length: 400,
@@ -94,7 +101,8 @@ const books = [
   },
   {
     title: "Through Darkest Europe",
-    author: "Turtledove, Harry",
+    authorLast: "Turtledove",
+    authorFirst: "Harry",
     isbn: "0765379988",
     rating: 3.5,
     length: 320,
@@ -107,7 +115,8 @@ const books = [
   },
   {
     title: "Stars Uncharted",
-    author: "Dunstall, S.K.",
+    authorLast: "Dunstall",
+    authorFirst: "S.K.",
     isbn: "0399587624",
     rating: 4.04,
     length: 416,
@@ -120,7 +129,8 @@ const books = [
   },
   {
     title: "Relic",
-    author: "Foster, Alan Dean",
+    authorLast: "Foster",
+    authorFirst: "Alan Dean",
     isbn: "1101967633",
     rating: 3.84,
     length: 320,
@@ -133,7 +143,8 @@ const books = [
   },
   {
     title: "Rogue Protocol",
-    author: "Wells, Martha",
+    authorLast: "Wells",
+    authorFirst: "Martha",
     isbn: "1250191785",
     rating: 4.35,
     length: 158,
@@ -145,7 +156,8 @@ const books = [
   },
   {
     title: "The Price You Pay",
-    author: "Truhen, Aidan",
+    authorLast: "Truhen",
+    authorFirst: "Aidan",
     isbn: "1524733377",
     rating: 3.88,
     length: 288,
@@ -157,7 +169,8 @@ const books = [
   },
   {
     title: "Buying Time",
-    author: "Brown, E.M.",
+    authorLast: "Brown",
+    authorFirst: "E.M.",
     isbn: "1781085080",
     rating: 3.8,
     length: 320,
@@ -170,7 +183,8 @@ const books = [
   },
   {
     title: "The Smoke",
-    author: "Ings, Simon",
+    authorLast: "Ings",
+    authorFirst: "Simon",
     isbn: "057512010X",
     rating: 3.86,
     length: 300,
@@ -183,7 +197,8 @@ const books = [
   },
   {
     title: "Artificial Condition",
-    author: "Wells, Martha",
+    authorLast: "Wells",
+    authorFirst: "Martha",
     isbn: "0765397552",
     rating: 4.33,
     length: 159,
@@ -196,7 +211,8 @@ const books = [
   },
   {
     title: "Medusa Uploaded",
-    author: "Devenport, Emily",
+    authorLast: "Devenport",
+    authorFirst: "Emily",
     isbn: "1250169321",
     rating: 3.99,
     length: 317,
@@ -210,7 +226,8 @@ const books = [
   },
   {
     title: "Black Helicopters",
-    author: "Kiernan, Caitlin R.",
+    authorLast: "Kiernan",
+    authorFirst: "Caitlin R.",
     isbn: "1250191130",
     rating: 3.46,
     length: 208,
@@ -223,7 +240,8 @@ const books = [
   },
   {
     title: "From Unseen Fire",
-    author: "Morris, Cass",
+    authorLast: "Morris",
+    authorFirst: "Cass",
     isbn: "0756412242",
     rating: 3.93,
     length: 400,
@@ -237,7 +255,8 @@ const books = [
   },
   {
     title: "Blackfish City",
-    author: "Miller, Sam J.",
+    authorLast: "Miller",
+    authorFirst: "Sam J.",
     isbn: "0062684841",
     rating: 3.6,
     length: 336,
@@ -251,7 +270,8 @@ const books = [
   },
   {
     title: "Before Mars",
-    author: "Newman, Emma",
+    authorLast: "Newman",
+    authorFirst: "Emma",
     isbn: "147322389X",
     rating: 4.1,
     length: 320,
@@ -265,7 +285,8 @@ const books = [
   },
   {
     title: "Imposter Syndrome",
-    author: "Baker, Mishell",
+    authorLast: "Baker",
+    authorFirst: "Mishell",
     isbn: "1481451952",
     rating: 4.05,
     length: 480,
@@ -277,7 +298,8 @@ const books = [
   },
   {
     title: "The Armored Saint",
-    author: "Cole, Myke",
+    authorLast: "Cole",
+    authorFirst: "Myke",
     isbn: "0765395959",
     rating: 3.75,
     length: 206,
@@ -290,7 +312,8 @@ const books = [
   },
   {
     title: "Embers of War",
-    author: "Powell, Gareth L.",
+    authorLast: "Powell",
+    authorFirst: "Gareth L.",
     isbn: "1785655183",
     rating: 4.05,
     length: 411,
@@ -304,7 +327,8 @@ const books = [
   },
   {
     title: "One Way",
-    author: "Morden, S.J.",
+    authorLast: "Morden",
+    authorFirst: "S.J.",
     isbn: "1473222567",
     rating: 3.63,
     length: 358,
@@ -317,7 +341,8 @@ const books = [
   },
   {
     title: "Gunpowder Moon",
-    author: "Pedreira, David",
+    authorLast: "Pedreira",
+    authorFirst: "David",
     isbn: "0062676083",
     rating: 3.64,
     length: 289,
@@ -331,7 +356,8 @@ const books = [
   },
   {
     title: "A Darker Shade of Magic",
-    author: "Schwab, V.E.",
+    authorLast: "Schwab",
+    authorFirst: "V.E.",
     purchased: true,
     isbn: "0765376458",
     rating: 4.09,
@@ -346,7 +372,8 @@ const books = [
   },
   {
     title: "A Discovery of Witches",
-    author: "Harkness, Deborah",
+    authorLast: "Harkness",
+    authorFirst: "Deborah",
     isbn: "0143119680",
     rating: 3.99,
     length: 579,
@@ -357,7 +384,8 @@ const books = [
   },
   {
     title: "A Shadow in Summer",
-    author: "Abraham, Daniel",
+    authorLast: "Abraham",
+    authorFirst: "Daniel",
     purchased: true,
     isbn: "0765313405",
     rating: 3.59,
@@ -371,7 +399,8 @@ const books = [
   },
   {
     title: "Thrawn",
-    author: "Zahn, Timothy",
+    authorLast: "Zahn",
+    authorFirst: "Timothy",
     isbn: "1780894848",
     rating: 4.28,
     length: 427,
@@ -382,7 +411,8 @@ const books = [
   },
   {
     title: "The Book of Phoenix",
-    author: "Okorafor, Nnedi",
+    authorLast: "Okorafor",
+    authorFirst: "Nnedi",
     isbn: "0756410193",
     rating: 3.89,
     length: 232,
@@ -392,7 +422,8 @@ const books = [
   },
   {
     title: "Kushiel's Dart",
-    author: "Carey, Jacqueline",
+    authorLast: "Carey",
+    authorFirst: "Jacqueline",
     isbn: "0330493744",
     rating: 4.04,
     length: 934,
@@ -406,7 +437,8 @@ const books = [
   },
   {
     title: "Sleeping Giants",
-    author: "Neuvel, Sylvain",
+    authorLast: "Neuvel",
+    authorFirst: "Sylvain",
     isbn: "1101886692",
     note: "the mystery of the bizarre artifact remains unsolved",
     source: "Tor newsletter",
@@ -419,7 +451,8 @@ const books = [
   },
   {
     title: "Seed to Harvest Bundle",
-    author: "Butler, Octavia E.",
+    authorLast: "Butler",
+    authorFirst: "Octavia E.",
     isbn: "0446698903",
     note: "everyone recommends Octavia Butler",
     rating: 4.32,
@@ -431,7 +464,8 @@ const books = [
   },
   {
     title: "Wild Seed",
-    author: "Butler, Octavia E.",
+    authorLast: "Butler",
+    authorFirst: "Octavia E.",
     isbn: "0446676977",
     note: "everyone recommends Octavia Butler",
     rating: 4.21,
@@ -443,7 +477,8 @@ const books = [
   },
   {
     title: "The Wrong Stars",
-    author: "Pratt, Tim",
+    authorLast: "Pratt",
+    authorFirst: "Tim",
     isbn: "0857667092",
     rating: 3.89,
     length: 396,
@@ -457,7 +492,8 @@ const books = [
   },
   {
     title: "Fragile Things",
-    author: "Gaiman, Neil",
+    authorLast: "Gaiman",
+    authorFirst: "Neil",
     isbn: "0060515228",
     rating: 4.01,
     length: 400,
@@ -468,7 +504,8 @@ const books = [
   },
   {
     title: "Europe in Autumn",
-    author: "Hutchinson, Dave",
+    authorLast: "Hutchinson",
+    authorFirst: "Dave",
     isbn: "1781081948",
     rating: 3.73,
     length: 432,
@@ -480,7 +517,8 @@ const books = [
   },
   {
     title: "Provenance",
-    author: "Leckie, Ann",
+    authorLast: "Leckie",
+    authorFirst: "Ann",
     isbn: "0356506967",
     rating: 3.86,
     length: 448,
@@ -492,7 +530,8 @@ const books = [
   },
   {
     title: "Trigger Warnings",
-    author: "Gaiman, Neil",
+    authorLast: "Gaiman",
+    authorFirst: "Neil",
     isbn: "0062330268",
     rating: 3.92,
     length: 371,
@@ -504,7 +543,8 @@ const books = [
   },
   {
     title: "Wool Omnibus",
-    author: "Howey, Hugh",
+    authorLast: "Howey",
+    authorFirst: "Hugh",
     isbn: "1476733953",
     rating: 4.24,
     length: 509,
@@ -516,7 +556,8 @@ const books = [
   },
   {
     title: "Wool",
-    author: "Howey, Hugh",
+    authorLast: "Howey",
+    authorFirst: "Hugh",
     isbn: "1461057205",
     rating: 4.12,
     length: 58,
@@ -528,7 +569,8 @@ const books = [
   },
   {
     title: "Too Like the Lightning",
-    author: "Palmer, Ada",
+    authorLast: "Palmer",
+    authorFirst: "Ada",
     isbn: "0765378000",
     rating: 3.87,
     length: 432,
@@ -540,7 +582,8 @@ const books = [
   },
   {
     title: "Mechanical Failure",
-    author: "Zieja, Joe",
+    authorLast: "Zieja",
+    authorFirst: "Joe",
     isbn: "1481459287",
     rating: 3.72,
     length: 345,
@@ -553,7 +596,8 @@ const books = [
   },
   {
     title: "Skeen's Leap",
-    author: "Clayton, Jo",
+    authorLast: "Clayton",
+    authorFirst: "Jo",
     isbn: "1504038452",
     rating: 3.74,
     length: 320,
@@ -564,7 +608,8 @@ const books = [
   },
   {
     title: "The Boy on the Bridge",
-    author: "Carey, M.R.",
+    authorLast: "Carey",
+    authorFirst: "M.R.",
     isbn: "0316300330",
     rating: 4.02,
     length: 400,
@@ -576,7 +621,8 @@ const books = [
   },
   {
     title: "Revenger",
-    author: "Reynolds, Alastair",
+    authorLast: "Reynolds",
+    authorFirst: "Alastair",
     isbn: "0575090537",
     rating: 3.81,
     length: 411,
@@ -587,7 +633,8 @@ const books = [
   },
   {
     title: "Shadow & Claw",
-    author: "Wolfe, Gene",
+    authorLast: "Wolfe",
+    authorFirst: "Gene",
     isbn: "0312890176",
     rating: 4.04,
     length: 417,
@@ -599,7 +646,8 @@ const books = [
   },
   {
     title: "The Shadow of the Torturer",
-    author: "Wolfe, Gene",
+    authorLast: "Wolfe",
+    authorFirst: "Gene",
     isbn: "0671540661",
     rating: 3.79,
     length: 262,
@@ -611,7 +659,8 @@ const books = [
   },
   {
     title: "Lilith's Brood Bundle",
-    author: "Butler, Octavia E.",
+    authorLast: "Butler",
+    authorFirst: "Octavia E.",
     isbn: "0446676101",
     rating: 4.31,
     length: 754,
@@ -624,7 +673,8 @@ const books = [
   },
   {
     title: "Dawn",
-    author: "Butler, Octavia E.",
+    authorLast: "Butler",
+    authorFirst: "Octavia E.",
     isbn: "0446603775",
     rating: 4.11,
     length: 248,
@@ -637,7 +687,8 @@ const books = [
   },
   {
     title: "The Black Tides of Heaven",
-    author: "Yang, J.Y.",
+    authorLast: "Yang",
+    authorFirst: "J.Y.",
     isbn: "076539541X",
     rating: 3.96,
     length: 240,
@@ -648,7 +699,8 @@ const books = [
   },
   {
     title: "The Blade Itself",
-    author: "Abercrombie, Joe",
+    authorLast: "Abercrombie",
+    authorFirst: "Joe",
     isbn: "159102594X",
     rating: 4.14,
     length: 544,
@@ -659,7 +711,8 @@ const books = [
   },
   {
     title: "The Emperor's Blades",
-    author: "Stavely, Brian",
+    authorLast: "Stavely",
+    authorFirst: "Brian",
     isbn: "0765336405",
     rating: 4.14,
     length: 593,
@@ -673,7 +726,8 @@ const books = [
   },
   {
     title: "The Sheep Look Up",
-    author: "Brunner, John",
+    authorLast: "Brunner",
+    authorFirst: "John",
     isbn: "1932100016",
     rating: 3.98,
     length: 398,
@@ -684,7 +738,8 @@ const books = [
   },
   {
     title: "Singularity Sky",
-    author: "Stross, Charles",
+    authorLast: "Stross",
+    authorFirst: "Charles",
     isbn: "1841493341",
     rating: 3.82,
     length: 356,
@@ -698,7 +753,8 @@ const books = [
   },
   {
     title: "Iron Sunrise",
-    author: "Stross, Charles",
+    authorLast: "Stross",
+    authorFirst: "Charles",
     isbn: "1841493368",
     rating: 3.97,
     length: 448,
@@ -710,7 +766,8 @@ const books = [
   },
   {
     title: "The Magician King",
-    author: "Grossman, Lev",
+    authorLast: "Grossman",
+    authorFirst: "Lev",
     isbn: "043402080X",
     rating: 3.91,
     length: 418,
@@ -721,7 +778,8 @@ const books = [
   },
   {
     title: "The Rift",
-    author: "Allan, Nina",
+    authorLast: "Allan",
+    authorFirst: "Nina",
     isbn: "1785650378",
     rating: 3.4,
     length: 400,
@@ -734,7 +792,8 @@ const books = [
   },
   {
     title: "Pandemic",
-    author: "Riddle, A.G.",
+    authorLast: "Riddle",
+    authorFirst: "A.G.",
     isbn: "1940026091",
     rating: 4.08,
     length: 696,
@@ -745,7 +804,8 @@ const books = [
   },
   {
     title: "Fluency",
-    author: "Wells, Jennifer Foehner",
+    authorLast: "Wells",
+    authorFirst: "Jennifer Foehner",
     isbn: "0990479811",
     rating: 3.8,
     length: 377,
@@ -758,7 +818,8 @@ const books = [
   },
   {
     title: "Three Parts Dead",
-    author: "Gladstone, Max",
+    authorLast: "Gladstone",
+    authorFirst: "Max",
     isbn: "0765333104",
     rating: 3.98,
     length: 334,
@@ -772,7 +833,8 @@ const books = [
   },
   {
     title: "Coyote",
-    author: "Steele, Allen M.",
+    authorLast: "Steele",
+    authorFirst: "Allen M.",
     isbn: "0441009743",
     rating: 3.83,
     length: 412,
@@ -785,7 +847,8 @@ const books = [
   },
   {
     title: "The Amazing Adventures of Kavalier & Clay",
-    author: "Chabon, Michael",
+    authorLast: "Chabon",
+    authorFirst: "Michael",
     isbn: "0812983580",
     rating: 4.17,
     length: 658,
@@ -796,7 +859,8 @@ const books = [
   },
   {
     title: "Waste of Space",
-    author: "Damico, Gina",
+    authorLast: "Damico",
+    authorFirst: "Gina",
     isbn: "0544633164",
     rating: 3.54,
     length: 512,
@@ -809,7 +873,8 @@ const books = [
   },
   {
     title: "The Gone-Away World",
-    author: "Harkaway, Nick",
+    authorLast: "Harkaway",
+    authorFirst: "Nick",
     isbn: "0307389073",
     rating: 4.13,
     length: 594,
@@ -820,7 +885,8 @@ const books = [
   },
   {
     title: "Rewinder",
-    author: "Battles, Brett",
+    authorLast: "Battles",
+    authorFirst: "Brett",
     isbn: "1500766941",
     rating: 3.88,
     length: 300,
@@ -832,7 +898,8 @@ const books = [
   },
   {
     title: "Destroyer",
-    author: "Battles, Brett",
+    authorLast: "Battles",
+    authorFirst: "Brett",
     isbn: "1503951596",
     rating: 3.76,
     length: 242,
@@ -844,7 +911,8 @@ const books = [
   },
   {
     title: "Armada",
-    author: "Cline, Ernest",
+    authorLast: "Cline",
+    authorFirst: "Ernest",
     isbn: "0804137250",
     rating: 3.5,
     length: 368,
@@ -855,7 +923,8 @@ const books = [
   },
   {
     title: "Gnomon",
-    author: "Harkaway, Nick",
+    authorLast: "Harkaway",
+    authorFirst: "Nick",
     isbn: "1785151274",
     rating: 3.95,
     length: 560,
@@ -868,7 +937,8 @@ const books = [
   },
   {
     title: "Retrograde",
-    author: "Cawdron, Peter",
+    authorLast: "Cawdron",
+    authorFirst: "Peter",
     isbn: "1328834557",
     rating: 3.78,
     length: 256,
@@ -878,7 +948,8 @@ const books = [
   },
   {
     title: "Central Station",
-    author: "Tidhar, Lavie",
+    authorLast: "Tidhar",
+    authorFirst: "Lavie",
     isbn: "1616962143",
     rating: 3.51,
     length: 290,
@@ -889,7 +960,8 @@ const books = [
   },
   {
     title: "Parable of the Sower",
-    author: "Butler, Octavia E.",
+    authorLast: "Butler",
+    authorFirst: "Octavia E.",
     isbn: "0446675504",
     rating: 4.14,
     length: 356,
@@ -900,7 +972,8 @@ const books = [
   },
   {
     title: "Parable of the Talents",
-    author: "Butler, Octavia E.",
+    authorLast: "Butler",
+    authorFirst: "Octavia E.",
     isbn: "1888363819",
     rating: 4.22,
     length: 434,
@@ -911,7 +984,8 @@ const books = [
   },
   {
     title: "Children of Time",
-    author: "Tchaikovsky, Adrian",
+    authorLast: "Tchaikovsky",
+    authorFirst: "Adrian",
     isbn: "1447273281",
     rating: 4.29,
     length: 609,
@@ -922,7 +996,8 @@ const books = [
   },
   {
     title: "The Rise and Fall of D.O.D.O.",
-    author: "Stephenson, Neal and Galland, Nicole",
+    authorLast: "Stephenson",
+    authorFirst: "Neal and Galland, Nicole",
     isbn: "0062409166",
     rating: 3.91,
     length: 768,
@@ -933,7 +1008,8 @@ const books = [
   },
   {
     title: "A Wizard of Earthsea",
-    author: "Le Guin, Ursula K.",
+    authorLast: "Le Guin",
+    authorFirst: "Ursula K.",
     isbn: "0553383043",
     rating: 3.99,
     length: 210,
@@ -945,7 +1021,8 @@ const books = [
   },
   {
     title: "The Lathe of Heaven",
-    author: "Le Guin, Ursula K.",
+    authorLast: "Le Guin",
+    authorFirst: "Ursula K.",
     isbn: "0060512741",
     rating: 4.1,
     length: 194,
@@ -956,7 +1033,8 @@ const books = [
   },
   {
     title: "Constitution",
-    author: "Webb, Nick",
+    authorLast: "Webb",
+    authorFirst: "Nick",
     isbn: "151476993X",
     rating: 3.89,
     length: 362,
@@ -968,7 +1046,8 @@ const books = [
   },
   {
     title: "The Dig",
-    author: "Siemsen, Michael",
+    authorLast: "Siemsen",
+    authorFirst: "Michael",
     isbn: "1940757088",
     rating: 3.62,
     length: 377,
@@ -980,7 +1059,8 @@ const books = [
   },
   {
     title: "The Bloodline Feud",
-    author: "Stross, Charles",
+    authorLast: "Stross",
+    authorFirst: "Charles",
     isbn: "1447237617",
     rating: 3.88,
     length: 576,
@@ -992,7 +1072,8 @@ const books = [
   },
   {
     title: "The Family Trade",
-    author: "Stross, Charles",
+    authorLast: "Stross",
+    authorFirst: "Charles",
     isbn: "0765348217",
     rating: 3.51,
     length: 308,
@@ -1004,7 +1085,8 @@ const books = [
   },
   {
     title: "Behind the Throne",
-    author: "Wagners, K.B.",
+    authorLast: "Wagners",
+    authorFirst: "K.B.",
     isbn: "0316308609",
     rating: 3.84,
     length: 432,
@@ -1018,7 +1100,8 @@ const books = [
   },
   {
     title: "Dauntless",
-    author: "Campbell, Jack",
+    authorLast: "Campbell",
+    authorFirst: "Jack",
     isbn: "0441014186",
     rating: 3.94,
     length: 308,
@@ -1030,7 +1113,8 @@ const books = [
   },
   {
     title: "Left Hand of Darkness",
-    author: "Le Guin, Ursula K.",
+    authorLast: "Le Guin",
+    authorFirst: "Ursula K.",
     isbn: "0441478123",
     rating: 4.06,
     length: 320,
@@ -1042,7 +1126,8 @@ const books = [
   },
   {
     title: "Artemis",
-    author: "Weir, Andy",
+    authorLast: "Weir",
+    authorFirst: "Andy",
     isbn: "0553448129",
     rating: 3.68,
     length: 322,
@@ -1053,7 +1138,8 @@ const books = [
   },
   {
     title: "Little Brother",
-    author: "Doctorow, Cory",
+    authorLast: "Doctorow",
+    authorFirst: "Cory",
     isbn: "0765319853",
     rating: 3.93,
     length: 387,
@@ -1064,7 +1150,8 @@ const books = [
   },
   {
     title: "New York 2140",
-    author: "Robinson, Kim Stanley",
+    authorLast: "Robinson",
+    authorFirst: "Kim Stanley",
     isbn: "031626234X",
     rating: 3.6,
     length: 624,
@@ -1076,7 +1163,8 @@ const books = [
   },
   {
     title: "Nightwise",
-    author: "Belcher, R.S.",
+    authorLast: "Belcher",
+    authorFirst: "R.S.",
     isbn: "0765374609",
     rating: 3.66,
     length: 320,
@@ -1086,7 +1174,8 @@ const books = [
   },
   {
     title: "My Real Children",
-    author: "Walton, Jo",
+    authorLast: "Walton",
+    authorFirst: "Jo",
     isbn: "0765332655",
     rating: 3.76,
     length: 555,
@@ -1098,7 +1187,8 @@ const books = [
   },
   {
     title: "The Book of Joan",
-    author: "Yuknavitch, Lidia",
+    authorLast: "Yuknavitch",
+    authorFirst: "Lidia",
     isbn: "0062383272",
     rating: 3.15,
     length: 288,
@@ -1110,7 +1200,8 @@ const books = [
   },
   {
     title: "After Atlas",
-    author: "Newman, Emma",
+    authorLast: "Newman",
+    authorFirst: "Emma",
     isbn: "0425282406",
     rating: 4.17,
     length: 369,
@@ -1123,7 +1214,8 @@ const books = [
   },
   {
     title: "Planetfall",
-    author: "Newman, Emma",
+    authorLast: "Newman",
+    authorFirst: "Emma",
     isbn: "0425282392",
     rating: 3.69,
     length: 336,
@@ -1134,7 +1226,8 @@ const books = [
   },
   {
     title: "Accelerando",
-    author: "Stross, Charles",
+    authorLast: "Stross",
+    authorFirst: "Charles",
     isbn: "1841493899",
     rating: 3.88,
     length: 415,
@@ -1147,7 +1240,8 @@ const books = [
   },
   {
     title: "City of Golden Shadow",
-    author: "Williams, Tad",
+    authorLast: "Williams",
+    authorFirst: "Tad",
     isbn: "0886777631",
     rating: 3.9,
     length: 780,
@@ -1160,7 +1254,8 @@ const books = [
   },
   {
     title: "My Father, the Pornographer: A Memoir",
-    author: "Offutt, Chris",
+    authorLast: "Offutt",
+    authorFirst: "Chris",
     isbn: "1501112465",
     rating: 3.59,
     length: 272,
@@ -1169,7 +1264,8 @@ const books = [
   },
   {
     title: "The City of Brass",
-    author: "Chakraborty, S.A.",
+    authorLast: "Chakraborty",
+    authorFirst: "S.A.",
     isbn: "0008239398",
     rating: 4.23,
     length: 533,
@@ -1183,7 +1279,8 @@ const books = [
   },
   {
     title: "Ironclads",
-    author: "Tchaikovsky, Adrian",
+    authorLast: "Tchaikovsky",
+    authorFirst: "Adrian",
     isbn: "1781085684",
     rating: 3.83,
     length: 200,
@@ -1194,7 +1291,8 @@ const books = [
   },
   {
     title: "Feed",
-    author: "Grant, Mira",
+    authorLast: "Grant",
+    authorFirst: "Mira",
     isbn: "0316081051",
     rating: 3.86,
     length: 599,
@@ -1208,7 +1306,8 @@ const books = [
   },
   {
     title: "The Daedalus Incident",
-    author: "Martinez, Michael",
+    authorLast: "Martinez",
+    authorFirst: "Michael",
     isbn: "159780858X",
     rating: 3.64,
     length: 400,
@@ -1219,7 +1318,8 @@ const books = [
   },
   {
     title: "Who Fears Death",
-    author: "Okarafor, Nnedi",
+    authorLast: "Okarafor",
+    authorFirst: "Nnedi",
     isbn: "075640617X",
     rating: 3.95,
     length: 386,
@@ -1232,7 +1332,8 @@ const books = [
   },
   {
     title: "Ka: Dar Oakley in the Ruin of Ymr",
-    author: "Crowley, John",
+    authorLast: "Crowley",
+    authorFirst: "John",
     isbn: "1481495593",
     rating: 4.13,
     length: 464,
@@ -1242,7 +1343,8 @@ const books = [
   },
   {
     title: "The Tiger's Daughter",
-    author: "Arsenault Rivera, K",
+    authorLast: "Arsenault Rivera",
+    authorFirst: "K",
     isbn: "0765392534",
     rating: 3.77,
     length: 526,
@@ -1253,7 +1355,8 @@ const books = [
   },
   {
     title: "Barbary Station",
-    author: "Stearns, R.E.",
+    authorLast: "Stearns",
+    authorFirst: "R.E.",
     isbn: "1481476874",
     rating: 3.29,
     length: 384,
@@ -1267,7 +1370,8 @@ const books = [
   },
   {
     title: "Ironfoot",
-    author: "Duncan, Dave",
+    authorLast: "Duncan",
+    authorFirst: "Dave",
     isbn: "1597809179",
     rating: 4.17,
     length: 344,
@@ -1279,7 +1383,8 @@ const books = [
   },
   {
     title: "Akata Warrior",
-    author: "Okorafor, Nnedi",
+    authorLast: "Okorafor",
+    authorFirst: "Nnedi",
     isbn: "067078561X",
     rating: 4.29,
     length: 496,
@@ -1291,7 +1396,8 @@ const books = [
   },
   {
     title: "Akata Witch",
-    author: "Okorafor, Nnedi",
+    authorLast: "Okorafor",
+    authorFirst: "Nnedi",
     isbn: "0670011967",
     rating: 4.09,
     length: 349,
@@ -1303,7 +1409,8 @@ const books = [
   },
   {
     title: "An Unkindness of Magicians",
-    author: "Howard, Kat",
+    authorLast: "Howard",
+    authorFirst: "Kat",
     isbn: "1481451219",
     rating: 3.81,
     length: 352,
@@ -1314,7 +1421,8 @@ const books = [
   },
   {
     title: "Autonomous",
-    author: "Newitz, Annalee",
+    authorLast: "Newitz",
+    authorFirst: "Annalee",
     isbn: "0765392070",
     rating: 3.62,
     length: 303,
@@ -1325,7 +1433,8 @@ const books = [
   },
   {
     title: "We Are Legion (We Are Bob)",
-    author: "Taylor, Dennis",
+    authorLast: "Taylor",
+    authorFirst: "Dennis",
     isbn: "1680680587",
     rating: 4.29,
     length: 304,
@@ -1336,7 +1445,8 @@ const books = [
   },
   {
     title: "A Man of Shadows",
-    author: "Noon, Jeff",
+    authorLast: "Noon",
+    authorFirst: "Jeff",
     isbn: "085766669X",
     rating: 3.46,
     length: 352,
@@ -1347,7 +1457,8 @@ const books = [
   },
   {
     title: "The Peripheral",
-    author: "Gibson, William",
+    authorLast: "Gibson",
+    authorFirst: "William",
     isbn: "0399158448",
     rating: 3.94,
     length: 485,
@@ -1359,7 +1470,8 @@ const books = [
   },
   {
     title: "Orbital Cloud",
-    author: "Fujiii, Taiyo",
+    authorLast: "Fujiii",
+    authorFirst: "Taiyo",
     isbn: "1421592134",
     rating: 3.69,
     length: 528,
@@ -1369,7 +1481,8 @@ const books = [
   },
   {
     title: "The Legend of Eli Monpress",
-    author: "Aaron, Rachel",
+    authorLast: "Aaron",
+    authorFirst: "Rachel",
     isbn: "0316193577",
     rating: 4.16,
     length: 1040,
@@ -1382,7 +1495,8 @@ const books = [
   },
   {
     title: "The Spirit Thief",
-    author: "Aaron, Rachel",
+    authorLast: "Aaron",
+    authorFirst: "Rachel",
     isbn: "0316120820",
     rating: 3.88,
     length: 310,
@@ -1395,7 +1509,8 @@ const books = [
   },
   {
     title: "Tomorrow's Kin",
-    author: "Kress, Nancy",
+    authorLast: "Kress",
+    authorFirst: "Nancy",
     isbn: "0765390310",
     rating: 3.64,
     length: 352,
@@ -1409,7 +1524,8 @@ const books = [
   },
   {
     title: "Dichronauts",
-    author: "Egan, Greg",
+    authorLast: "Egan",
+    authorFirst: "Greg",
     isbn: "1597806056",
     rating: 3.53,
     length: 312,
@@ -1421,7 +1537,8 @@ const books = [
   },
   {
     title: "Master of the Five Magics",
-    author: "Hardy, Lyndon",
+    authorLast: "Hardy",
+    authorFirst: "Lyndon",
     isbn: "0345319079",
     rating: 3.81,
     length: 541,
@@ -1433,7 +1550,8 @@ const books = [
   },
   {
     title: "The Magician's Land",
-    author: "Grossman, Lev",
+    authorLast: "Grossman",
+    authorFirst: "Lev",
     isbn: "0670015679",
     rating: 4.16,
     length: 402,
@@ -1444,7 +1562,8 @@ const books = [
   },
   {
     title: "The Wanderers",
-    author: "Howrey, Meg",
+    authorLast: "Howrey",
+    authorFirst: "Meg",
     isbn: "0399574638",
     rating: 3.55,
     length: 370,
@@ -1456,7 +1575,8 @@ const books = [
   },
   {
     title: "Hull Zero Three",
-    author: "Bear, Greg",
+    authorLast: "Bear",
+    authorFirst: "Greg",
     isbn: "0316072818",
     rating: 3.37,
     length: 307,
@@ -1466,7 +1586,8 @@ const books = [
   },
   {
     title: "Ararat",
-    author: "Golden, Christopher",
+    authorLast: "Golden",
+    authorFirst: "Christopher",
     isbn: "1250117054",
     rating: 3.39,
     length: 320,
@@ -1476,7 +1597,8 @@ const books = [
   },
   {
     title: "The Bridge",
-    author: "Banks, Iain",
+    authorLast: "Banks",
+    authorFirst: "Iain",
     isbn: "0349102155",
     rating: 3.84,
     length: 288,
@@ -1488,7 +1610,8 @@ const books = [
   },
   {
     title: "The Word for World is Forest",
-    author: "Le Guin, Ursula K.",
+    authorLast: "Le Guin",
+    authorFirst: "Ursula K.",
     isbn: "1473205786",
     rating: 3.92,
     length: 160,
@@ -1501,7 +1624,8 @@ const books = [
   },
   {
     title: "Portal of a Thousand Worlds",
-    author: "Duncan, Dave",
+    authorLast: "Duncan",
+    authorFirst: "Dave",
     isbn: "1504038754",
     rating: 3.84,
     length: 482,
@@ -1512,7 +1636,8 @@ const books = [
   },
   {
     title: "All Our Wrong Todays",
-    author: "Mastai, Elan",
+    authorLast: "Mastai",
+    authorFirst: "Elan",
     isbn: "1101985135",
     rating: 3.8,
     length: 384,
@@ -1522,7 +1647,8 @@ const books = [
   },
   {
     title: "The Stars Are Legion",
-    author: "Hurley, Kameron",
+    authorLast: "Hurley",
+    authorFirst: "Kameron",
     isbn: "0857666614",
     rating: 3.7,
     length: 400,
@@ -1534,7 +1660,8 @@ const books = [
   },
   {
     title: "Norse Mythology",
-    author: "Gaiman, Neil",
+    authorLast: "Gaiman",
+    authorFirst: "Neil",
     isbn: "039360909X",
     rating: 4.09,
     length: 299,
@@ -1544,7 +1671,8 @@ const books = [
   },
   {
     title: "The Fortress at the End of Time",
-    author: "McDermott, Joe M.",
+    authorLast: "McDermott",
+    authorFirst: "Joe M.",
     isbn: "076539281X",
     rating: 3.08,
     length: 305,
@@ -1556,7 +1684,8 @@ const books = [
   },
   {
     title: "The Grace of Kings",
-    author: "Liu, Ken",
+    authorLast: "Liu",
+    authorFirst: "Ken",
     isbn: "1481424270",
     rating: 3.74,
     length: 623,
@@ -1569,7 +1698,8 @@ const books = [
   },
   {
     title: "Dark Run",
-    author: "Brooks, Mike",
+    authorLast: "Brooks",
+    authorFirst: "Mike",
     isbn: "0091956641",
     rating: 3.61,
     length: 432,
@@ -1582,7 +1712,8 @@ const books = [
   },
   {
     title: "Aurora",
-    author: "Robinson, Kim Stanley",
+    authorLast: "Robinson",
+    authorFirst: "Kim Stanley",
     isbn: "0316098108",
     rating: 3.73,
     length: 466,
@@ -1594,7 +1725,8 @@ const books = [
   },
   {
     title: "Spindrift",
-    author: "Steele, Allen M.",
+    authorLast: "Steele",
+    authorFirst: "Allen M.",
     isbn: "0441015824",
     rating: 3.83,
     length: 368,
@@ -1606,7 +1738,8 @@ const books = [
   },
   {
     title: "Arkwright",
-    author: "Steele, Allen M.",
+    authorLast: "Steele",
+    authorFirst: "Allen M.",
     isbn: "0765382156",
     rating: 3.66,
     length: 336,
@@ -1617,7 +1750,8 @@ const books = [
   },
   {
     title: "Roadside Picnic",
-    author: "Strugatsky, Arkady",
+    authorLast: "Strugatsky",
+    authorFirst: "Arkady",
     isbn: "0575070536",
     rating: 4.21,
     length: 145,
@@ -1629,7 +1763,8 @@ const books = [
   },
   {
     title: "The Scar",
-    author: "Miéville, China",
+    authorLast: "Miéville",
+    authorFirst: "China",
     isbn: "0345460014",
     rating: 4.16,
     length: 578,
@@ -1641,7 +1776,8 @@ const books = [
   },
   {
     title: "Chasm City",
-    author: "Reynolds, Alastair",
+    authorLast: "Reynolds",
+    authorFirst: "Alastair",
     isbn: "0441010644",
     rating: 4.13,
     length: 694,
@@ -1652,7 +1788,8 @@ const books = [
   },
   {
     title: "The Passage",
-    author: "Cronin, Justin",
+    authorLast: "Cronin",
+    authorFirst: "Justin",
     isbn: "0345504968",
     rating: 4.04,
     length: 766,
@@ -1663,7 +1800,8 @@ const books = [
   },
   {
     title: "Echopraxia",
-    author: "Watts, Peter",
+    authorLast: "Watts",
+    authorFirst: "Peter",
     isbn: "076532802X",
     rating: 3.89,
     length: 384,
@@ -1674,7 +1812,8 @@ const books = [
   },
   {
     title: "Transition",
-    author: "Banks, Iain M.",
+    authorLast: "Banks",
+    authorFirst: "Iain M.",
     isbn: "0316071986",
     rating: 3.85,
     length: 404,
@@ -1687,7 +1826,8 @@ const books = [
   },
   {
     title: "Charmed Life",
-    author: "Jones, Diana Wynne",
+    authorLast: "Jones",
+    authorFirst: "Diana Wynne",
     isbn: "0007255292",
     rating: 3.95,
     length: 252,
@@ -1697,7 +1837,8 @@ const books = [
   },
   {
     title: "The Quantum Thief",
-    author: "Rajaneimi, Hannu",
+    authorLast: "Rajaneimi",
+    authorFirst: "Hannu",
     isbn: "0575088877",
     rating: 3.84,
     length: 336,
@@ -1709,7 +1850,8 @@ const books = [
   },
   {
     title: "Tiamat's Wrath",
-    author: "Corey, James S.A.",
+    authorLast: "Corey",
+    authorFirst: "James S.A.",
     isbn: "0316332879",
     rating: 0,
     length: 608,
@@ -1720,7 +1862,8 @@ const books = [
   },
   {
     title: "Persepolis Rising",
-    author: "Corey, James S.A.",
+    authorLast: "Corey",
+    authorFirst: "James S.A.",
     isbn: "0316332828",
     rating: 4.35,
     length: 608,
@@ -1731,7 +1874,8 @@ const books = [
   },
   {
     title: "Strange Dogs",
-    author: "Corey, James S.A.",
+    authorLast: "Corey",
+    authorFirst: "James S.A.",
     isbn: "0316217573",
     rating: 3.9,
     length: 112,
@@ -1742,7 +1886,8 @@ const books = [
   },
   {
     title: "Babylon's Ashes",
-    author: "Corey, James S.A.",
+    authorLast: "Corey",
+    authorFirst: "James S.A.",
     isbn: "0356504263",
     rating: 4.19,
     length: 538,
@@ -1753,7 +1898,8 @@ const books = [
   },
   {
     title: "The Vital Abyss",
-    author: "Corey, James S.A.",
+    authorLast: "Corey",
+    authorFirst: "James S.A.",
     isbn: "0316217565",
     rating: 3.85,
     length: 75,
@@ -1764,7 +1910,8 @@ const books = [
   },
   {
     title: "Nemesis Games",
-    author: "Corey, James S.A.",
+    authorLast: "Corey",
+    authorFirst: "James S.A.",
     isbn: "0356504220",
     rating: 4.37,
     length: 536,
@@ -1775,7 +1922,8 @@ const books = [
   },
   {
     title: "Cibola Burn",
-    author: "Corey, James S.A.",
+    authorLast: "Corey",
+    authorFirst: "James S.A.",
     isbn: "031621762X",
     rating: 4.13,
     length: 581,
@@ -1786,7 +1934,8 @@ const books = [
   },
   {
     title: "The Inheritance Trilogy",
-    author: "Jemisin, N.K.",
+    authorLast: "Jemisin",
+    authorFirst: "N.K.",
     isbn: "0316334006",
     rating: 4.15,
     length: 1442,
@@ -1798,7 +1947,8 @@ const books = [
   },
   {
     title: "The Hundred Thousand Kingdoms",
-    author: "Jemisin, N.K.",
+    authorLast: "Jemisin",
+    authorFirst: "N.K.",
     isbn: "0316043923",
     rating: 3.82,
     length: 427,
@@ -1810,7 +1960,8 @@ const books = [
   },
   {
     title: "Station Eleven",
-    author: "Mandel, Emily St. John",
+    authorLast: "Mandel",
+    authorFirst: "Emily St. John",
     isbn: "0385353308",
     rating: 4.02,
     length: 336,
@@ -1820,7 +1971,8 @@ const books = [
   },
   {
     title: "The Three-Body Problem",
-    author: "Liu, Cixin",
+    authorLast: "Liu",
+    authorFirst: "Cixin",
     isbn: "0765377063",
     rating: 4.03,
     length: 400,
@@ -1831,7 +1983,8 @@ const books = [
   },
   {
     title: "The Goblin Emperor",
-    author: "Addison, Katherine",
+    authorLast: "Addison",
+    authorFirst: "Katherine",
     isbn: "076532699X",
     rating: 4.04,
     length: 446,
@@ -1842,7 +1995,8 @@ const books = [
   },
   {
     title: "Stand on Zanzibar",
-    author: "Brunner, John",
+    authorLast: "Brunner",
+    authorFirst: "John",
     isbn: "1857988361",
     rating: 3.97,
     length: 672,
@@ -1852,7 +2006,8 @@ const books = [
   },
   {
     title: "The Water Knife",
-    author: "Bacigalupi, Paolo",
+    authorLast: "Bacigalupi",
+    authorFirst: "Paolo",
     isbn: "0356501744",
     rating: 3.83,
     length: 371,
@@ -1862,7 +2017,8 @@ const books = [
   },
   {
     title: "Nexus",
-    author: "Naam, Ramez",
+    authorLast: "Naam",
+    authorFirst: "Ramez",
     isbn: "0857665502",
     rating: 4.05,
     length: 460,
@@ -1873,7 +2029,8 @@ const books = [
   },
   {
     title: "The Windup Girl",
-    author: "Bacigalupi, Paolo",
+    authorLast: "Bacigalupi",
+    authorFirst: "Paolo",
     isbn: "1597801577",
     rating: 3.74,
     length: 359,
@@ -1884,7 +2041,8 @@ const books = [
   },
   {
     title: "Red Planet Blues",
-    author: "Sawyer, Robert J.",
+    authorLast: "Sawyer",
+    authorFirst: "Robert J.",
     isbn: "0425256820",
     rating: 3.5,
     length: 368,
@@ -1894,7 +2052,8 @@ const books = [
   },
   {
     title: "Pastwatch: The Redemption of Christopher Columbus",
-    author: "Card, Orson Scott",
+    authorLast: "Card",
+    authorFirst: "Orson Scott",
     isbn: "0812508645",
     rating: 3.96,
     length: 402,
@@ -1903,7 +2062,8 @@ const books = [
   },
   {
     title: "Seed",
-    author: "Ziegler, Rob",
+    authorLast: "Ziegler",
+    authorFirst: "Rob",
     isbn: "1597803251",
     rating: 3.21,
     length: 341,
@@ -1913,7 +2073,8 @@ const books = [
   },
   {
     title: "The Final Empire",
-    author: "Sanderson, Brandon",
+    authorLast: "Sanderson",
+    authorFirst: "Brandon",
     isbn: "076531178X",
     rating: 4.43,
     length: 541,
@@ -1926,7 +2087,8 @@ const books = [
   },
   {
     title: "The Black Company",
-    author: "Cook, Glen",
+    authorLast: "Cook",
+    authorFirst: "Glen",
     isbn: "0812521390",
     rating: 3.96,
     length: 319,
@@ -1940,7 +2102,8 @@ const books = [
   },
   {
     title: "The Red Threads of Fortune",
-    author: "Yang, JY",
+    authorLast: "Yang",
+    authorFirst: "JY",
     isbn: "0765395398",
     rating: 4.06,
     length: 213,

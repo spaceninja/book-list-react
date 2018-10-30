@@ -2,17 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import Confirm from "./Confirm";
 import { confirmAlert } from "react-confirm-alert";
-import { reverseName } from "../helpers";
 
 class Book extends React.Component {
   static propTypes = {
     details: PropTypes.shape({
       title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
+      authorLast: PropTypes.string.isRequired,
+      authorFirst: PropTypes.string.isRequired,
       isbn: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
       length: PropTypes.number.isRequired,
       series: PropTypes.string,
+      release: PropTypes.string,
       textSnippet: PropTypes.string,
       source: PropTypes.string,
       note: PropTypes.string,
@@ -59,7 +60,9 @@ class Book extends React.Component {
           {book.series && " "}
           {book.series && <span className="book__series">({book.series})</span>}
         </h2>
-        <p className="book__author">by {reverseName(book.author)}</p>
+        <p className="book__author">
+          by {book.authorFirst} {book.authorLast}
+        </p>
         <p className="book__rating num">
           <span className="sr-only">Rating:</span> {book.rating.toFixed(1)}
         </p>
