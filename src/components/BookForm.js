@@ -7,11 +7,13 @@ class BookForm extends React.Component {
   static propTypes = {
     selectedBook: PropTypes.shape({
       title: PropTypes.string,
-      author: PropTypes.string,
+      authorLast: PropTypes.string,
+      authorFirst: PropTypes.string,
       isbn: PropTypes.string,
       rating: PropTypes.number,
       length: PropTypes.number,
       series: PropTypes.string,
+      release: PropTypes.string,
       textSnippet: PropTypes.string,
       source: PropTypes.string,
       note: PropTypes.string,
@@ -28,11 +30,13 @@ class BookForm extends React.Component {
   state = {
     book: {
       title: this.props.selectedBook.title || "",
-      author: this.props.selectedBook.author || "",
+      authorLast: this.props.selectedBook.authorLast || "",
+      authorFirst: this.props.selectedBook.authorFirst || "",
       isbn: this.props.selectedBook.isbn || "",
       rating: this.props.selectedBook.rating || "",
       length: this.props.selectedBook.length || "",
       series: this.props.selectedBook.series || "",
+      release: this.props.selectedBook.release || "",
       textSnippet: this.props.selectedBook.textSnippet || "",
       source: this.props.selectedBook.source || "",
       note: this.props.selectedBook.note || "",
@@ -111,30 +115,6 @@ class BookForm extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="book-author">Author</label>
-            <input
-              type="text"
-              className="form-control"
-              id="book-author"
-              name="author"
-              required
-              value={book.author}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="book-isbn">ISBN</label>
-            <input
-              type="text"
-              className="form-control"
-              id="book-isbn"
-              name="isbn"
-              required
-              value={book.isbn}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-group">
             <label htmlFor="book-series">Series</label>
             <input
               type="text"
@@ -146,19 +126,46 @@ class BookForm extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="book-rating">Rating</label>
+            <label htmlFor="book-author-first">Author First Name</label>
             <input
-              type="number"
-              step="0.01"
-              min="0"
-              max="5"
+              type="text"
               className="form-control"
-              id="book-rating"
-              name="rating"
+              id="book-author-first"
+              name="authorFirst"
               required
-              value={book.rating}
+              value={book.authorFirst}
               onChange={this.handleChange}
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="book-author-last">Author Last Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="book-author-last"
+              name="authorLast"
+              required
+              value={book.authorLast}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="book-rating">Rating</label>
+            <span className="input-group">
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                max="5"
+                className="form-control"
+                id="book-rating"
+                name="rating"
+                required
+                value={book.rating}
+                onChange={this.handleChange}
+              />
+              <span className="input-group-append">/ 5</span>
+            </span>
           </div>
           <div className="form-group">
             <label htmlFor="book-length">Length</label>
@@ -174,6 +181,30 @@ class BookForm extends React.Component {
               />
               <span className="input-group-append">pages</span>
             </span>
+          </div>
+          <div className="form-group">
+            <label htmlFor="book-isbn">ISBN</label>
+            <input
+              type="text"
+              className="form-control"
+              id="book-isbn"
+              name="isbn"
+              required
+              value={book.isbn}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="book-release">Release Date</label>
+            <input
+              type="date"
+              className="form-control"
+              id="book-release"
+              name="release"
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              value={book.release}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="form-group form-group-doublewide">
             <label htmlFor="book-textsnippet">Blurb</label>

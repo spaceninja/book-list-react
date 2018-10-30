@@ -29,11 +29,31 @@ class App extends React.Component {
   };
 
   sortOptions = {
-    title: { order: "ascending", thenBy: "author", thenByOrder: "ascending" },
-    series: { order: "ascending", thenBy: "title", thenByOrder: "ascending" },
-    author: { order: "ascending", thenBy: "title", thenByOrder: "ascending" },
-    rating: { order: "descending", thenBy: "length", thenByOrder: "ascending" },
-    length: { order: "ascending", thenBy: "rating", thenByOrder: "descending" }
+    title: {
+      order: "ascending",
+      thenBy: "authorLast",
+      thenByOrder: "ascending"
+    },
+    series: {
+      order: "ascending",
+      thenBy: "title",
+      thenByOrder: "ascending"
+    },
+    authorLast: {
+      order: "ascending",
+      thenBy: "series",
+      thenByOrder: "ascending"
+    },
+    rating: {
+      order: "descending",
+      thenBy: "length",
+      thenByOrder: "ascending"
+    },
+    length: {
+      order: "ascending",
+      thenBy: "rating",
+      thenByOrder: "descending"
+    }
   };
 
   toggleModal = () => {

@@ -1,7 +1,8 @@
 const books = [
   {
     title: "Example Book with Everything",
-    author: "McBigName, Author",
+    authorLast: "McBigName",
+    authorFirst: "Author",
     isbn: "0123456789",
     rating: 4.99,
     length: 999,
@@ -15,7 +16,8 @@ const books = [
   },
   {
     title: "Minimum Viable Book",
-    author: "Selfpublished, Timmy",
+    authorLast: "Selfpublished",
+    authorFirst: "Timmy",
     isbn: "9876543210",
     rating: 0.01,
     length: 1

@@ -30,7 +30,7 @@ class SortBy extends React.Component {
         >
           <option value="title">Title</option>
           <option value="series">Series</option>
-          <option value="author">Author</option>
+          <option value="authorLast">Author</option>
           <option value="rating">Rating</option>
           <option value="length">Pages</option>
         </select>
