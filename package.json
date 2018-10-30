@@ -2,7 +2,7 @@
   "name": "book-list-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://books.oscorp.net/",
+  "homepage": "https://books.oscorp.net",
   "dependencies": {
     "firebase": "^5.5.6",
     "gh-pages": "^2.0.1",
