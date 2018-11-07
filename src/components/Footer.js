@@ -34,18 +34,22 @@ class Footer extends React.Component {
         )}
         {this.props.adminMode && (
           <React.Fragment>
-            <button
-              className="btn btn-secondary"
-              onClick={this.props.loadInitBooks}
-            >
-              Load Init Books
-            </button>
-            <button
-              className="btn btn-secondary"
-              onClick={this.props.loadSampleBooks}
-            >
-              Load Sample Books
-            </button>
+            {process.env.NODE_ENV === "development" && (
+              <React.Fragment>
+                <button
+                  className="btn btn-secondary"
+                  onClick={this.props.loadInitBooks}
+                >
+                  Load Init Books
+                </button>
+                <button
+                  className="btn btn-secondary"
+                  onClick={this.props.loadSampleBooks}
+                >
+                  Load Sample Books
+                </button>
+              </React.Fragment>
+            )}
             <button
               className="btn btn-secondary"
               onClick={this.props.createNewBook}
