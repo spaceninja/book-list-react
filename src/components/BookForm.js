@@ -82,7 +82,7 @@ class BookForm extends React.Component {
     if (type === "checkbox") {
       value = e.currentTarget.checked;
     } else if (type === "number") {
-      value = parseInt(e.currentTarget.value);
+      value = Number(e.currentTarget.value);
     } else {
       value = e.currentTarget.value;
     }
