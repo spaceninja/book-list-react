@@ -18,7 +18,8 @@ class BookForm extends React.Component {
       source: PropTypes.string,
       note: PropTypes.string,
       purchased: PropTypes.bool,
-      prioritize: PropTypes.bool
+      prioritize: PropTypes.bool,
+      thumbnail: PropTypes.string
     }).isRequired,
     checkForCollision: PropTypes.func.isRequired,
     createNewBook: PropTypes.func.isRequired,
@@ -41,7 +42,8 @@ class BookForm extends React.Component {
       source: this.props.selectedBook.source || "",
       note: this.props.selectedBook.note || "",
       purchased: this.props.selectedBook.purchased || false,
-      prioritize: this.props.selectedBook.prioritize || false
+      prioritize: this.props.selectedBook.prioritize || false,
+      thumbnail: this.props.selectedBook.thumbnail || ""
     }
   };
 
@@ -93,11 +95,41 @@ class BookForm extends React.Component {
     this.setState({ book });
   };
 
+  getCover = isbn => {
+    fetch(
+      "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
+        isbn +
+        "&fields=items(volumeInfo(imageLinks))" +
+        "&key=" +
+        process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
+      { method: "get" }
+    )
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        if (data.error) {
+          throw new Error(data.error.message);
+        }
+        const book = this.state.book;
+        let img = data.items[0].volumeInfo.imageLinks.thumbnail;
+        img = img.replace(/^http:\/\//i, "https://");
+        book.thumbnail = img;
+        this.setState({ book });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   render() {
     const book = this.state.book;
     let handler = this.handleSubmit;
     if (this.props.isbnCollision && !this.props.selectedBook.isbn) {
       handler = this.handleConfirmSubmit;
+    }
+    if (!book.thumbnail) {
+      this.getCover(book.isbn);
     }
     return (
       <div className="modal is-visible">
@@ -203,6 +235,17 @@ class BookForm extends React.Component {
               name="release"
               pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
               value={book.release}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group form-group-doublewide">
+            <label htmlFor="book-thumbnail">Thumbnail</label>
+            <input
+              type="text"
+              className="form-control"
+              id="book-thumbnail"
+              name="thumbnail"
+              value={book.thumbnail}
               onChange={this.handleChange}
             />
           </div>
