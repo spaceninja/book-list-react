@@ -101,7 +101,7 @@ class BookForm extends React.Component {
         isbn +
         "&fields=items(volumeInfo(imageLinks))" +
         "&key=" +
-        process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
+        process.env.REACT_APP_FIREBASE_API_KEY,
       { method: "get" }
     )
       .then(response => {
