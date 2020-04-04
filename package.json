@@ -33,7 +33,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "stylelint": "9.10.1",
+    "stylelint": "13.3.0",
     "stylelint-config-spaceninja": "github:spaceninja/stylelint-config-spaceninja"
   }
 }
